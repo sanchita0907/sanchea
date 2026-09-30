@@ -1,0 +1,1836 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SANCHÉA — Makeup Studio</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@400;500;600&display=swap"
+          rel="stylesheet">
+
+
+<style>
+
+/* =========================
+   RESET
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+
+    background:
+        radial-gradient(
+            circle at 75% 10%,
+            rgba(117, 76, 145, 0.22),
+            transparent 32%
+        ),
+        radial-gradient(
+            circle at 15% 65%,
+            rgba(76, 43, 95, 0.18),
+            transparent 30%
+        ),
+        #100c14;
+
+    color: #f2edf5;
+
+    font-family: "DM Sans", sans-serif;
+
+    overflow-x: hidden;
+}
+
+
+/* =========================
+   LAVENDER PETALS
+========================= */
+
+.petal {
+
+    position: fixed;
+
+    top: -40px;
+
+    width: 13px;
+    height: 20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #b88bc9,
+            #62406f
+        );
+
+    border-radius:
+        80% 20% 80% 20%;
+
+    opacity: 0.55;
+
+    pointer-events: none;
+
+    z-index: 20;
+
+    filter:
+        drop-shadow(
+            0 0 7px
+            rgba(185,130,210,0.35)
+        );
+
+    animation:
+        fallPetal linear infinite;
+}
+
+.petal:nth-child(1) {
+    left: 5%;
+    animation-duration: 11s;
+}
+
+.petal:nth-child(2) {
+    left: 14%;
+    animation-duration: 14s;
+    animation-delay: 2s;
+}
+
+.petal:nth-child(3) {
+    left: 27%;
+    animation-duration: 10s;
+    animation-delay: 4s;
+}
+
+.petal:nth-child(4) {
+    left: 39%;
+    animation-duration: 15s;
+    animation-delay: 1s;
+}
+
+.petal:nth-child(5) {
+    left: 51%;
+    animation-duration: 12s;
+    animation-delay: 5s;
+}
+
+.petal:nth-child(6) {
+    left: 63%;
+    animation-duration: 16s;
+    animation-delay: 3s;
+}
+
+.petal:nth-child(7) {
+    left: 76%;
+    animation-duration: 11s;
+    animation-delay: 6s;
+}
+
+.petal:nth-child(8) {
+    left: 88%;
+    animation-duration: 13s;
+    animation-delay: 1s;
+}
+
+.petal:nth-child(9) {
+    left: 96%;
+    animation-duration: 17s;
+    animation-delay: 4s;
+}
+
+@keyframes fallPetal {
+
+    0% {
+        transform:
+            translateY(-50px)
+            translateX(0)
+            rotate(0deg);
+
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0.65;
+    }
+
+    50% {
+        transform:
+            translateY(50vh)
+            translateX(70px)
+            rotate(180deg);
+    }
+
+    100% {
+        transform:
+            translateY(110vh)
+            translateX(-80px)
+            rotate(360deg);
+
+        opacity: 0;
+    }
+}
+
+
+/* =========================
+   NAVBAR
+========================= */
+
+nav {
+
+    position: relative;
+    z-index: 10;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 28px 7%;
+
+    border-bottom:
+        1px solid
+        rgba(255,255,255,0.08);
+
+    background:
+        rgba(16,12,20,0.65);
+
+    backdrop-filter: blur(18px);
+}
+
+.logo {
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-size: 25px;
+
+    letter-spacing: 5px;
+
+    color: #d8b8e5;
+}
+
+.back-home {
+
+    text-decoration: none;
+
+    color: #aaa1b0;
+
+    font-size: 12px;
+
+    letter-spacing: 2px;
+
+    transition: 0.3s;
+}
+
+.back-home:hover {
+    color: #d8b8e5;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+
+    min-height: 88vh;
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    align-items: center;
+
+    gap: 70px;
+
+    padding:
+        80px 8%;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+.eyebrow {
+
+    color: #b58bc4;
+
+    font-size: 10px;
+
+    letter-spacing: 4px;
+
+    margin-bottom: 22px;
+}
+
+h1 {
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-size:
+        clamp(55px, 7vw, 100px);
+
+    font-weight: 400;
+
+    line-height: 0.95;
+
+    margin-bottom: 30px;
+}
+
+h1 span {
+
+    display: block;
+
+    color: #b88bc9;
+
+    font-style: italic;
+}
+
+.hero-text {
+
+    max-width: 520px;
+
+    color: #a69eaa;
+
+    line-height: 1.9;
+
+    font-size: 15px;
+}
+
+.hero-button {
+
+    display: inline-flex;
+
+    margin-top: 35px;
+
+    padding:
+        15px 25px;
+
+    border:
+        1px solid
+        #9c72ad;
+
+    color: #d7bce2;
+
+    text-decoration: none;
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+    transition: 0.35s;
+}
+
+.hero-button:hover {
+
+    background: #9c72ad;
+
+    color: white;
+
+    transform:
+        translateY(-4px);
+
+    box-shadow:
+        0 15px 35px
+        rgba(140,90,165,0.25);
+}
+
+
+/* =========================
+   HERO IMAGE
+========================= */
+
+.hero-image {
+
+    height: 610px;
+
+    position: relative;
+
+    overflow: hidden;
+
+    border:
+        1px solid
+        rgba(184,139,201,0.25);
+
+    box-shadow:
+        0 35px 90px
+        rgba(0,0,0,0.6);
+}
+
+.hero-image img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    transition:
+        transform 1s ease;
+}
+
+.hero-image:hover img {
+    transform: scale(1.06);
+}
+
+.hero-image::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            transparent 40%,
+            rgba(15,8,20,0.85)
+        );
+}
+
+.image-caption {
+
+    position: absolute;
+
+    z-index: 3;
+
+    bottom: 30px;
+
+    left: 30px;
+}
+
+.image-caption small {
+
+    display: block;
+
+    color: #c59bd2;
+
+    letter-spacing: 3px;
+
+    font-size: 10px;
+
+    margin-bottom: 7px;
+}
+
+.image-caption strong {
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-size: 30px;
+
+    font-weight: 400;
+}
+
+
+/* =========================
+   GENERAL SECTION
+========================= */
+
+.section {
+
+    position: relative;
+
+    z-index: 2;
+
+    padding:
+        110px 8%;
+}
+
+.section-heading {
+
+    text-align: center;
+
+    max-width: 720px;
+
+    margin:
+        auto auto 60px;
+}
+
+.section-heading h2 {
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-size:
+        clamp(42px, 5vw, 65px);
+
+    font-weight: 400;
+
+    margin-bottom: 20px;
+}
+
+.section-heading h2 em {
+
+    color: #b88bc9;
+
+}
+
+.section-heading p {
+
+    color: #99909f;
+
+    line-height: 1.8;
+}
+
+
+/* =========================
+   MAKEUP GRID
+========================= */
+
+.makeup-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 18px;
+}
+
+.makeup-card {
+
+    min-height: 390px;
+
+    position: relative;
+
+    overflow: hidden;
+
+    cursor: pointer;
+
+    background: #1a141e;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.08);
+
+    transition:
+        transform 0.4s ease,
+        border-color 0.4s ease,
+        box-shadow 0.4s ease;
+}
+
+.makeup-card:hover {
+
+    transform:
+        translateY(-10px);
+
+    border-color:
+        rgba(184,139,201,0.7);
+
+    box-shadow:
+        0 25px 60px
+        rgba(88,45,105,0.25);
+}
+
+.makeup-card.active {
+
+    border-color:
+        #b88bc9;
+
+    box-shadow:
+        0 0 40px
+        rgba(184,139,201,0.15);
+}
+
+.makeup-card img {
+
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    transition:
+        transform 0.7s ease;
+}
+
+.makeup-card:hover img {
+
+    transform:
+        scale(1.08);
+}
+
+.makeup-card::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            transparent 25%,
+            rgba(10,6,13,0.92)
+        );
+}
+
+.makeup-info {
+
+    position: absolute;
+
+    z-index: 3;
+
+    bottom: 25px;
+
+    left: 25px;
+
+    right: 20px;
+}
+
+.makeup-info span {
+
+    font-size: 10px;
+
+    letter-spacing: 3px;
+
+    color: #c49ad2;
+}
+
+.makeup-info h3 {
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-size: 28px;
+
+    font-weight: 400;
+
+    margin-top: 7px;
+}
+
+.makeup-info p {
+
+    color: #aaa0ad;
+
+    font-size: 12px;
+
+    margin-top: 8px;
+}
+
+
+/* =========================
+   PRODUCTS
+========================= */
+
+.products {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 18px;
+
+    margin-top: 55px;
+}
+
+.product {
+
+    padding: 28px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #211925,
+            #130f16
+        );
+
+    border:
+        1px solid
+        rgba(255,255,255,0.07);
+
+    transition:
+        transform 0.35s,
+        border-color 0.35s;
+}
+
+.product:hover {
+
+    transform:
+        translateY(-7px);
+
+    border-color:
+        rgba(184,139,201,0.5);
+}
+
+.product-icon {
+
+    width: 60px;
+
+    height: 110px;
+
+    margin:
+        0 auto 25px;
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+}
+
+
+/* LIPSTICK */
+
+.lipstick {
+
+    width: 25px;
+
+    height: 65px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #3b172f,
+            #8c477b,
+            #40152e
+        );
+
+    border-radius:
+        3px 3px 2px 2px;
+
+    position: relative;
+
+    box-shadow:
+        0 10px 25px
+        rgba(120,50,110,0.35);
+}
+
+.lipstick::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 25px;
+
+    height: 30px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #6f284e,
+            #b65c88
+        );
+
+    top: -20px;
+
+    border-radius:
+        60% 10% 5% 5%;
+
+    transform:
+        rotate(-8deg);
+}
+
+
+/* BLUSH */
+
+.blush {
+
+    width: 82px;
+
+    height: 45px;
+
+    border-radius:
+        50%;
+
+    background:
+        radial-gradient(
+            circle,
+            #c9829e,
+            #79455f
+        );
+
+    border:
+        4px solid
+        #342333;
+
+    box-shadow:
+        0 12px 25px
+        rgba(170,90,120,0.3);
+}
+
+
+/* FOUNDATION */
+
+.foundation {
+
+    width: 50px;
+
+    height: 88px;
+
+    border-radius:
+        10px 10px 7px 7px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #8b654f,
+            #d0a98e,
+            #805a48
+        );
+
+    position: relative;
+}
+
+.foundation::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 22px;
+
+    height: 18px;
+
+    top: -16px;
+
+    left: 14px;
+
+    background: #242027;
+
+    border-radius:
+        4px 4px 2px 2px;
+}
+
+
+/* KAJAL */
+
+.kajal {
+
+    width: 75px;
+
+    height: 13px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #0b080d,
+            #65566b,
+            #0b080d
+        );
+
+    border-radius: 10px;
+
+    transform: rotate(-25deg);
+}
+
+.product-category {
+
+    font-size: 9px;
+
+    color: #9c789f;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 10px;
+}
+
+.product h3 {
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-weight: 400;
+
+    font-size: 20px;
+
+    line-height: 1.3;
+
+    margin-bottom: 8px;
+}
+
+.product p {
+
+    color: #88808d;
+
+    font-size: 12px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================
+   FLIPKART BUTTON
+========================= */
+
+.product-button {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 100%;
+
+    margin-top: 20px;
+
+    padding: 12px 15px;
+
+    background:
+        rgba(184,139,201,0.08);
+
+    border:
+        1px solid
+        rgba(184,139,201,0.35);
+
+    color: #d7bce2;
+
+    text-decoration: none;
+
+    font-size: 10px;
+
+    letter-spacing: 1.5px;
+
+    transition: 0.3s;
+}
+
+.product-button:hover {
+
+    background:
+        #b88bc9;
+
+    border-color:
+        #b88bc9;
+
+    color: #160d1b;
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 10px 25px
+        rgba(184,139,201,0.2);
+}
+
+
+/* =========================
+   LOOK BUILDER
+========================= */
+
+.look-section {
+
+    padding-top: 60px;
+}
+
+.look-panel {
+
+    max-width: 1050px;
+
+    margin: auto;
+
+    padding: 60px;
+
+    background:
+        radial-gradient(
+            circle at 90% 20%,
+            rgba(144,86,169,0.2),
+            transparent 35%
+        ),
+        #17111b;
+
+    border:
+        1px solid
+        rgba(184,139,201,0.25);
+}
+
+.look-panel h2 {
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-weight: 400;
+
+    font-size: 48px;
+
+    margin-bottom: 15px;
+}
+
+.look-panel h2 span {
+    color: #b88bc9;
+}
+
+.look-description {
+
+    max-width: 650px;
+
+    color: #99919f;
+
+    line-height: 1.8;
+
+    margin-bottom: 35px;
+}
+
+.look-options {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+}
+
+.look-button {
+
+    padding:
+        13px 20px;
+
+    background:
+        transparent;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.12);
+
+    color: #bdb4c1;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.look-button:hover,
+.look-button.active {
+
+    background:
+        rgba(154,107,174,0.18);
+
+    border-color:
+        #b88bc9;
+
+    color: #eadcf0;
+}
+
+.look-result {
+
+    margin-top: 35px;
+
+    padding: 25px;
+
+    background:
+        rgba(255,255,255,0.035);
+
+    border-left:
+        2px solid
+        #b88bc9;
+
+    color: #aaa0ae;
+
+    line-height: 1.8;
+
+    transition: opacity 0.2s;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+
+    text-align: center;
+
+    padding:
+        70px 8% 40px;
+
+    border-top:
+        1px solid
+        rgba(255,255,255,0.08);
+}
+
+footer h2 {
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-weight: 400;
+
+    font-size: 35px;
+
+    margin-bottom: 10px;
+}
+
+footer p {
+
+    color: #77707c;
+
+    font-size: 10px;
+
+    letter-spacing: 3px;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 1000px) {
+
+    .hero {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-image {
+        height: 500px;
+    }
+
+    .makeup-grid,
+    .products {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    nav {
+        padding: 22px 6%;
+    }
+
+    .hero,
+    .section {
+        padding-left: 6%;
+        padding-right: 6%;
+    }
+
+    .hero-image {
+        height: 450px;
+    }
+
+    .makeup-grid,
+    .products {
+        grid-template-columns: 1fr;
+    }
+
+    .look-panel {
+        padding: 30px;
+    }
+
+    .look-panel h2 {
+        font-size: 38px;
+    }
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     LAVENDER PETALS
+========================= -->
+
+<div class="petal"></div>
+<div class="petal"></div>
+<div class="petal"></div>
+<div class="petal"></div>
+<div class="petal"></div>
+<div class="petal"></div>
+<div class="petal"></div>
+<div class="petal"></div>
+<div class="petal"></div>
+
+
+
+<!-- =========================
+     NAVIGATION
+========================= -->
+
+<nav>
+
+    <div class="logo">
+        SANCHÉA
+    </div>
+
+    <a
+        href="../index.html"
+        class="back-home"
+    >
+        ← BACK TO SANCHÉA
+    </a>
+
+</nav>
+
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero">
+
+    <div>
+
+        <p class="eyebrow">
+            SANCHÉA / MAKEUP STUDIO
+        </p>
+
+        <h1>
+
+            Makeup,
+
+            <span>
+                your expression.
+            </span>
+
+        </h1>
+
+        <p class="hero-text">
+
+            From everyday nude looks to statement lips,
+            discover makeup ideas, product inspiration
+            and personalized looks designed around
+            your mood and occasion.
+
+        </p>
+
+        <a
+            href="#makeup"
+            class="hero-button"
+        >
+            EXPLORE THE MAKEUP EDIT →
+        </a>
+
+    </div>
+
+
+    <div class="hero-image">
+
+        <img
+            src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=1000&q=85"
+            alt="Elegant makeup beauty look"
+        >
+
+        <div class="image-caption">
+
+            <small>
+                EDITORIAL LOOK
+            </small>
+
+            <strong>
+                Lavender After Dark
+            </strong>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     MAKEUP CATEGORIES
+========================= -->
+
+<section
+    class="section"
+    id="makeup"
+>
+
+    <div class="section-heading">
+
+        <p class="eyebrow">
+            BUILD YOUR LOOK
+        </p>
+
+        <h2>
+
+            Every detail,
+
+            <em>
+                intentional.
+            </em>
+
+        </h2>
+
+        <p>
+
+            Explore the essential pieces of a complete
+            makeup look and discover how they work together.
+
+        </p>
+
+    </div>
+
+
+    <div class="makeup-grid">
+
+
+        <article class="makeup-card active">
+
+            <img
+                src="https://images.unsplash.com/photo-1586495777744-4413f21062fa?auto=format&fit=crop&w=800&q=85"
+                alt="Lipstick makeup"
+            >
+
+            <div class="makeup-info">
+
+                <span>
+                    01 / LIPS
+                </span>
+
+                <h3>
+                    Lips
+                </h3>
+
+                <p>
+                    Matte • Gloss • Nude • Bold
+                </p>
+
+            </div>
+
+        </article>
+
+
+        <article class="makeup-card">
+
+            <img
+                src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=800&q=85"
+                alt="Blush and makeup"
+            >
+
+            <div class="makeup-info">
+
+                <span>
+                    02 / CHEEKS
+                </span>
+
+                <h3>
+                    Blush
+                </h3>
+
+                <p>
+                    Soft flush • Rosy • Mauve
+                </p>
+
+            </div>
+
+        </article>
+
+
+        <article class="makeup-card">
+
+            <img
+                src="https://images.unsplash.com/photo-1583001931096-959e9a1a6223?auto=format&fit=crop&w=800&q=85"
+                alt="Eye makeup"
+            >
+
+            <div class="makeup-info">
+
+                <span>
+                    03 / EYES
+                </span>
+
+                <h3>
+                    Eyes
+                </h3>
+
+                <p>
+                    Kajal • Liner • Shadow • Mascara
+                </p>
+
+            </div>
+
+        </article>
+
+
+        <article class="makeup-card">
+
+            <img
+                src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=800&q=85"
+                alt="Makeup foundation"
+            >
+
+            <div class="makeup-info">
+
+                <span>
+                    04 / BASE
+                </span>
+
+                <h3>
+                    Base
+                </h3>
+
+                <p>
+                    Foundation • Concealer • Glow
+                </p>
+
+            </div>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     PRODUCT EDIT
+========================= -->
+
+<section class="section">
+
+
+    <div class="section-heading">
+
+        <p class="eyebrow">
+            PRODUCT EDIT
+        </p>
+
+        <h2>
+
+            The SANCHÉA
+
+            <em>
+                makeup shelf.
+            </em>
+
+        </h2>
+
+        <p>
+
+            Real Lakmé products you can explore
+            directly on Flipkart.
+
+        </p>
+
+    </div>
+
+
+
+    <div class="products">
+
+
+        <!-- =========================
+             LIPSTICK
+        ========================== -->
+
+        <div class="product">
+
+            <div class="product-icon">
+
+                <div class="lipstick"></div>
+
+            </div>
+
+            <div class="product-category">
+                LIPS
+            </div>
+
+            <h3>
+                Lakmé 9to5 Powerplay
+                Priming Matte Lipstick
+            </h3>
+
+            <p>
+                A matte lipstick available
+                in multiple shades.
+            </p>
+
+            <a
+                class="product-button"
+                href="https://www.flipkart.com/lakm-9to5-primer-matte-lip-color-rustic-brown/p/itm759cff762c952"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                🛍 SHOP ON FLIPKART →
+            </a>
+
+        </div>
+
+
+
+        <!-- =========================
+             BLUSH
+        ========================== -->
+
+        <div class="product">
+
+            <div class="product-icon">
+
+                <div class="blush"></div>
+
+            </div>
+
+            <div class="product-category">
+                CHEEKS
+            </div>
+
+            <h3>
+                Lakmé 9to5 Hya Beach
+                Edit SPF Blush
+            </h3>
+
+            <p>
+                Off Duty Coral shade with
+                a natural finish.
+            </p>
+
+            <a
+                class="product-button"
+                href="https://www.flipkart.com/lakm-9to5-hya-beach-edit-spf-blush-off-duty-coral-creamy-texture-travel-friendly/p/itmd536d6513247f"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                🛍 SHOP ON FLIPKART →
+            </a>
+
+        </div>
+
+
+
+        <!-- =========================
+             FOUNDATION
+        ========================== -->
+
+        <div class="product">
+
+            <div class="product-icon">
+
+                <div class="foundation"></div>
+
+            </div>
+
+            <div class="product-category">
+                BASE
+            </div>
+
+            <h3>
+                Lakmé 9to5 Hya Matte
+                Foundation + Hyaluronic Acid
+            </h3>
+
+            <p>
+                Warm Natural shade, 25 ml.
+                Check other shades on Flipkart.
+            </p>
+
+            <a
+                class="product-button"
+                href="https://www.flipkart.com/lakm-9to5-hya-matte-foundation-hyaluronic-acid-warm-natural-25ml/p/itm06e5f017fe87d"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                🛍 SHOP ON FLIPKART →
+            </a>
+
+        </div>
+
+
+
+        <!-- =========================
+             KAJAL
+        ========================== -->
+
+        <div class="product">
+
+            <div class="product-icon">
+
+                <div class="kajal"></div>
+
+            </div>
+
+            <div class="product-category">
+                EYES
+            </div>
+
+            <h3>
+                Lakmé 9to5 Eyeconic Kajal
+            </h3>
+
+            <p>
+                Deep Black kajal for
+                defined everyday eyes.
+            </p>
+
+            <a
+                class="product-button"
+                href="https://www.flipkart.com/lakm-eyeconic-kajal/p/itmevynydg9bsxcn"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                🛍 SHOP ON FLIPKART →
+            </a>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     LOOK BUILDER
+========================= -->
+
+<section class="section look-section">
+
+
+    <div class="look-panel">
+
+
+        <p class="eyebrow">
+            SANCHÉA LOOK BUILDER
+        </p>
+
+
+        <h2>
+
+            What are you feeling
+
+            <span>
+                today?
+            </span>
+
+        </h2>
+
+
+        <p class="look-description">
+
+            Choose your mood and SANCHÉA will create
+            a simple makeup direction for your look.
+
+        </p>
+
+
+        <div class="look-options">
+
+            <button
+                class="look-button active"
+                data-look="soft"
+            >
+                Soft & Natural
+            </button>
+
+            <button
+                class="look-button"
+                data-look="office"
+            >
+                Office Ready
+            </button>
+
+            <button
+                class="look-button"
+                data-look="date"
+            >
+                Date Night
+            </button>
+
+            <button
+                class="look-button"
+                data-look="party"
+            >
+                Lavender Glam
+            </button>
+
+        </div>
+
+
+        <div
+            class="look-result"
+            id="lookResult"
+        >
+
+            Try a soft base, subtle blush,
+            brushed brows and a nude-pink lip
+            for an effortless everyday look.
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    <h2>
+        SANCHÉA
+    </h2>
+
+    <p>
+        BEAUTY, PERSONALIZED.
+    </p>
+
+</footer>
+
+
+
+<script>
+
+/* =========================
+   LOOK BUILDER
+========================= */
+
+const buttons =
+    document.querySelectorAll(".look-button");
+
+const result =
+    document.getElementById("lookResult");
+
+
+const looks = {
+
+    soft:
+        "Try a soft base, subtle blush, brushed brows and a nude-pink lip for an effortless everyday look.",
+
+    office:
+        "Keep the base polished and lightweight. Add soft blush, defined brows, Eyeconic Kajal and a muted rose or nude lip.",
+
+    date:
+        "Go for luminous skin, rosy blush, softly defined eyes and a deeper lip shade for an elegant evening finish.",
+
+    party:
+        "Create a statement lavender look with luminous skin, mauve blush, purple-toned eyeshadow and a bold plum or berry lip."
+
+};
+
+
+buttons.forEach(button => {
+
+    button.addEventListener(
+        "click",
+        () => {
+
+            buttons.forEach(
+                item =>
+                    item.classList.remove("active")
+            );
+
+            button.classList.add("active");
+
+            const look =
+                button.dataset.look;
+
+            result.style.opacity = "0";
+
+            setTimeout(() => {
+
+                result.textContent =
+                    looks[look];
+
+                result.style.opacity = "1";
+
+            }, 180);
+
+        }
+    );
+
+});
+
+
+
+/* =========================
+   MAKEUP CARD INTERACTION
+========================= */
+
+const cards =
+    document.querySelectorAll(".makeup-card");
+
+
+cards.forEach(card => {
+
+    card.addEventListener(
+        "click",
+        () => {
+
+            cards.forEach(
+                item =>
+                    item.classList.remove("active")
+            );
+
+            card.classList.add("active");
+
+        }
+    );
+
+});
+
+
+
+/* =========================
+   MOUSE LAVENDER GLOW
+========================= */
+
+document.addEventListener(
+    "mousemove",
+    event => {
+
+        const x =
+            event.clientX;
+
+        const y =
+            event.clientY;
+
+
+        document.body.style.background = `
+
+            radial-gradient(
+                circle at ${x}px ${y}px,
+                rgba(139,91,163,0.13),
+                transparent 25%
+            ),
+
+            radial-gradient(
+                circle at 75% 10%,
+                rgba(117,76,145,0.18),
+                transparent 32%
+            ),
+
+            #100c14
+
+        `;
+
+    }
+);
+
+</script>
+
+
+</body>
+
+</html>

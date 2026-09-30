@@ -1,0 +1,1493 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SANCHÉA — Hair Rituals</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@400;500;600&display=swap"
+          rel="stylesheet">
+
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+
+            background:
+                radial-gradient(
+                    circle at 80% 10%,
+                    rgba(159, 117, 72, 0.15),
+                    transparent 30%
+                ),
+                #0d0c0b;
+
+            color: #eee9e2;
+
+            font-family: "DM Sans", sans-serif;
+
+            overflow-x: hidden;
+        }
+
+
+        /* =========================
+           FLOATING GOLD PARTICLES
+        ========================== */
+
+        .particle {
+
+            position: fixed;
+
+            width: 4px;
+            height: 4px;
+
+            background: #c8a879;
+
+            border-radius: 50%;
+
+            opacity: 0.45;
+
+            pointer-events: none;
+
+            box-shadow:
+                0 0 12px rgba(200,168,121,0.7);
+
+            animation:
+                floatParticle 8s infinite ease-in-out;
+
+            z-index: 0;
+        }
+
+
+        .particle:nth-child(1) {
+            left: 8%;
+            top: 20%;
+            animation-delay: 0s;
+        }
+
+        .particle:nth-child(2) {
+            left: 25%;
+            top: 70%;
+            animation-delay: 2s;
+        }
+
+        .particle:nth-child(3) {
+            left: 48%;
+            top: 30%;
+            animation-delay: 4s;
+        }
+
+        .particle:nth-child(4) {
+            left: 70%;
+            top: 75%;
+            animation-delay: 1s;
+        }
+
+        .particle:nth-child(5) {
+            left: 88%;
+            top: 25%;
+            animation-delay: 3s;
+        }
+
+
+        @keyframes floatParticle {
+
+            0%, 100% {
+                transform: translateY(0) scale(1);
+                opacity: 0.25;
+            }
+
+            50% {
+                transform: translateY(-35px) scale(1.5);
+                opacity: 0.8;
+            }
+        }
+
+
+        /* =========================
+           NAVBAR
+        ========================== */
+
+        nav {
+
+            position: relative;
+
+            z-index: 10;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            padding: 28px 7%;
+
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+
+            backdrop-filter: blur(15px);
+        }
+
+
+        .logo {
+
+            font-family: "Playfair Display", serif;
+
+            font-size: 25px;
+
+            letter-spacing: 5px;
+
+            color: #d5b98a;
+        }
+
+
+        .back-home {
+
+            color: #bdb6ae;
+
+            text-decoration: none;
+
+            font-size: 13px;
+
+            letter-spacing: 1px;
+
+            transition: 0.3s;
+        }
+
+
+        .back-home:hover {
+            color: #d5b98a;
+        }
+
+
+        /* =========================
+           HERO
+        ========================== */
+
+        .hero {
+
+            min-height: 88vh;
+
+            position: relative;
+
+            z-index: 1;
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 70px;
+
+            align-items: center;
+
+            padding: 80px 8%;
+        }
+
+
+        .eyebrow {
+
+            color: #b99562;
+
+            font-size: 11px;
+
+            letter-spacing: 4px;
+
+            margin-bottom: 22px;
+        }
+
+
+        h1 {
+
+            font-family: "Playfair Display", serif;
+
+            font-size: clamp(55px, 7vw, 105px);
+
+            font-weight: 400;
+
+            line-height: 0.95;
+
+            margin-bottom: 30px;
+        }
+
+
+        h1 span {
+
+            display: block;
+
+            color: #b99562;
+
+            font-style: italic;
+        }
+
+
+        .hero-text {
+
+            max-width: 520px;
+
+            color: #aaa39b;
+
+            line-height: 1.9;
+
+            font-size: 15px;
+        }
+
+
+        .hero-button {
+
+            display: inline-flex;
+
+            margin-top: 35px;
+
+            padding: 15px 25px;
+
+            border: 1px solid #b99562;
+
+            color: #e7d4b4;
+
+            text-decoration: none;
+
+            font-size: 12px;
+
+            letter-spacing: 2px;
+
+            transition: 0.35s;
+        }
+
+
+        .hero-button:hover {
+
+            background: #b99562;
+
+            color: #0d0c0b;
+
+            transform: translateY(-3px);
+        }
+
+
+        /* =========================
+           HERO IMAGE
+        ========================== */
+
+        .hero-image {
+
+            height: 620px;
+
+            position: relative;
+
+            overflow: hidden;
+
+            border-radius: 3px;
+
+            border: 1px solid rgba(200,168,121,0.25);
+
+            box-shadow:
+                0 30px 80px rgba(0,0,0,0.55);
+        }
+
+
+        .hero-image img {
+
+            width: 100%;
+
+            height: 100%;
+
+            object-fit: cover;
+
+            transition: transform 1s ease;
+        }
+
+
+        .hero-image:hover img {
+            transform: scale(1.05);
+        }
+
+
+        .hero-image::after {
+
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
+            background:
+                linear-gradient(
+                    180deg,
+                    transparent 50%,
+                    rgba(0,0,0,0.65)
+                );
+
+            pointer-events: none;
+        }
+
+
+        .image-label {
+
+            position: absolute;
+
+            bottom: 30px;
+
+            left: 30px;
+
+            z-index: 2;
+        }
+
+
+        .image-label small {
+
+            display: block;
+
+            color: #c8a879;
+
+            letter-spacing: 3px;
+
+            font-size: 10px;
+
+            margin-bottom: 8px;
+        }
+
+
+        .image-label strong {
+
+            font-family: "Playfair Display", serif;
+
+            font-size: 28px;
+
+            font-weight: 400;
+        }
+
+
+        /* =========================
+           HAIR TYPES
+        ========================== */
+
+        .section {
+
+            position: relative;
+
+            z-index: 1;
+
+            padding: 110px 8%;
+        }
+
+
+        .section-heading {
+
+            text-align: center;
+
+            max-width: 700px;
+
+            margin: auto auto 60px;
+        }
+
+
+        .section-heading h2 {
+
+            font-family: "Playfair Display", serif;
+
+            font-size: clamp(40px, 5vw, 65px);
+
+            font-weight: 400;
+
+            margin-bottom: 20px;
+        }
+
+
+        .section-heading p {
+
+            color: #99928a;
+
+            line-height: 1.8;
+        }
+
+
+        .hair-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 18px;
+        }
+
+
+        .hair-card {
+
+            position: relative;
+
+            min-height: 390px;
+
+            overflow: hidden;
+
+            cursor: pointer;
+
+            border: 1px solid rgba(255,255,255,0.08);
+
+            background: #171514;
+
+            transition:
+                transform 0.4s ease,
+                border-color 0.4s ease;
+        }
+
+
+        .hair-card:hover {
+
+            transform: translateY(-10px);
+
+            border-color: rgba(200,168,121,0.7);
+        }
+
+
+        .hair-card.active {
+
+            border-color: #c8a879;
+
+            box-shadow:
+                0 0 35px rgba(200,168,121,0.12);
+        }
+
+
+        .hair-card img {
+
+            width: 100%;
+
+            height: 100%;
+
+            object-fit: cover;
+
+            position: absolute;
+
+            inset: 0;
+
+            transition: 0.7s;
+        }
+
+
+        .hair-card:hover img {
+
+            transform: scale(1.08);
+        }
+
+
+        .hair-card::after {
+
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
+            background:
+                linear-gradient(
+                    transparent 35%,
+                    rgba(0,0,0,0.88)
+                );
+        }
+
+
+        .hair-info {
+
+            position: absolute;
+
+            z-index: 2;
+
+            bottom: 25px;
+
+            left: 25px;
+
+            right: 20px;
+        }
+
+
+        .hair-info span {
+
+            font-size: 10px;
+
+            letter-spacing: 3px;
+
+            color: #c8a879;
+        }
+
+
+        .hair-info h3 {
+
+            font-family: "Playfair Display", serif;
+
+            font-size: 29px;
+
+            font-weight: 400;
+
+            margin-top: 7px;
+        }
+
+
+        .hair-info p {
+
+            color: #b4ada5;
+
+            font-size: 12px;
+
+            margin-top: 8px;
+        }
+
+
+        /* =========================
+           ROUTINE PANEL
+        ========================== */
+
+        .routine-section {
+
+            padding-top: 60px;
+        }
+
+
+        .routine-panel {
+
+            max-width: 1000px;
+
+            margin: auto;
+
+            padding: 55px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #191715,
+                    #100f0e
+                );
+
+            border: 1px solid rgba(200,168,121,0.25);
+
+            position: relative;
+
+            overflow: hidden;
+        }
+
+
+        .routine-panel::before {
+
+            content: "";
+
+            position: absolute;
+
+            width: 300px;
+
+            height: 300px;
+
+            border-radius: 50%;
+
+            background: rgba(184,145,92,0.08);
+
+            filter: blur(70px);
+
+            right: -100px;
+
+            top: -100px;
+        }
+
+
+        .routine-number {
+
+            color: #b99562;
+
+            letter-spacing: 4px;
+
+            font-size: 11px;
+
+            margin-bottom: 15px;
+        }
+
+
+        .routine-title {
+
+            font-family: "Playfair Display", serif;
+
+            font-size: 48px;
+
+            font-weight: 400;
+
+            margin-bottom: 20px;
+        }
+
+
+        .routine-description {
+
+            color: #aaa39b;
+
+            max-width: 650px;
+
+            line-height: 1.8;
+
+            margin-bottom: 40px;
+        }
+
+
+        .routine-steps {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 15px;
+        }
+
+
+        .step {
+
+            padding: 25px;
+
+            background: rgba(255,255,255,0.035);
+
+            border: 1px solid rgba(255,255,255,0.06);
+
+            transition: 0.3s;
+        }
+
+
+        .step:hover {
+
+            transform: translateY(-5px);
+
+            border-color: rgba(200,168,121,0.35);
+        }
+
+
+        .step-number {
+
+            color: #c8a879;
+
+            font-size: 12px;
+
+            margin-bottom: 15px;
+        }
+
+
+        .step h4 {
+
+            font-family: "Playfair Display", serif;
+
+            font-size: 21px;
+
+            font-weight: 400;
+
+            margin-bottom: 8px;
+        }
+
+
+        .step p {
+
+            color: #918b84;
+
+            font-size: 12px;
+
+            line-height: 1.6;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================== */
+
+        footer {
+
+            position: relative;
+
+            z-index: 1;
+
+            padding: 60px 8% 35px;
+
+            border-top: 1px solid rgba(255,255,255,0.08);
+
+            text-align: center;
+        }
+
+
+        footer h2 {
+
+            font-family: "Playfair Display", serif;
+
+            font-weight: 400;
+
+            font-size: 35px;
+
+            margin-bottom: 12px;
+        }
+
+
+        footer p {
+
+            color: #817b74;
+
+            font-size: 12px;
+
+            letter-spacing: 2px;
+        }
+
+
+        /* =========================
+           RESPONSIVE
+        ========================== */
+
+        @media (max-width: 900px) {
+
+            .hero {
+
+                grid-template-columns: 1fr;
+
+                padding-top: 60px;
+            }
+
+
+            .hero-image {
+                height: 500px;
+            }
+
+
+            .hair-grid {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+
+            .routine-steps {
+
+                grid-template-columns: 1fr;
+            }
+        }
+
+
+        @media (max-width: 600px) {
+
+            nav {
+                padding: 22px 6%;
+            }
+
+
+            .hero {
+
+                padding: 60px 6%;
+            }
+
+
+            .section {
+
+                padding: 80px 6%;
+            }
+
+
+            .hair-grid {
+
+                grid-template-columns: 1fr;
+            }
+
+
+            .routine-panel {
+
+                padding: 30px;
+            }
+
+
+            .routine-title {
+                font-size: 38px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- GOLD PARTICLES -->
+
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+
+
+
+    <!-- NAVIGATION -->
+
+    <nav>
+
+        <div class="logo">
+            SANCHÉA
+        </div>
+
+
+        <a
+            href="../index.html"
+            class="back-home"
+        >
+            ← BACK TO SANCHÉA
+        </a>
+
+    </nav>
+
+
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+
+        <div class="hero-content">
+
+
+            <p class="eyebrow">
+                SANCHÉA / HAIR RITUALS
+            </p>
+
+
+            <h1>
+
+                Your hair,
+
+                <span>
+                    your ritual.
+                </span>
+
+            </h1>
+
+
+            <p class="hero-text">
+
+                Discover a hair routine designed around
+                your natural texture, lifestyle and the
+                way you want your hair to feel.
+
+            </p>
+
+
+            <a
+                href="#hair-types"
+                class="hero-button"
+            >
+                EXPLORE HAIR TYPES →
+            </a>
+
+
+        </div>
+
+
+
+        <!-- WAVY HAIR WOMAN -->
+
+        <div class="hero-image">
+
+
+            <img
+                src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1000&q=85"
+                alt="Woman with wavy hair"
+            >
+
+
+            <div class="image-label">
+
+                <small>
+                    FEATURED RITUAL
+                </small>
+
+                <strong>
+                    Soft Wavy Hair
+                </strong>
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- HAIR TYPES -->
+
+    <section
+        class="section"
+        id="hair-types"
+    >
+
+
+        <div class="section-heading">
+
+            <p class="eyebrow">
+                FIND YOUR TEXTURE
+            </p>
+
+            <h2>
+                Your natural texture,
+                <i>celebrated.</i>
+            </h2>
+
+            <p>
+                Select your hair type to reveal a
+                personalized SANCHÉA ritual.
+            </p>
+
+        </div>
+
+
+
+        <div class="hair-grid">
+
+
+            <!-- WAVY -->
+
+            <article
+                class="hair-card active"
+                data-type="wavy"
+            >
+
+                <img
+                    src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=800&q=85"
+                    alt="Woman with wavy hair"
+                >
+
+
+                <div class="hair-info">
+
+                    <span>
+                        01 / TEXTURE
+                    </span>
+
+                    <h3>
+                        Wavy
+                    </h3>
+
+                    <p>
+                        Soft movement & natural volume
+                    </p>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- CURLY -->
+
+            <article
+                class="hair-card"
+                data-type="curly"
+            >
+
+                <img
+                    src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&w=800&q=85"
+                    alt="Woman with curly hair"
+                >
+
+
+                <div class="hair-info">
+
+                    <span>
+                        02 / TEXTURE
+                    </span>
+
+                    <h3>
+                        Curly
+                    </h3>
+
+                    <p>
+                        Defined curls & hydration
+                    </p>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- STRAIGHT -->
+
+            <article
+                class="hair-card"
+                data-type="straight"
+            >
+
+                <img
+                    src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=800&q=85"
+                    alt="Woman with straight hair"
+                >
+
+
+                <div class="hair-info">
+
+                    <span>
+                        03 / TEXTURE
+                    </span>
+
+                    <h3>
+                        Straight
+                    </h3>
+
+                    <p>
+                        Smoothness & natural shine
+                    </p>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- COILY -->
+
+            <article
+                class="hair-card"
+                data-type="coily"
+            >
+
+                <img
+                    src="https://images.unsplash.com/photo-1530789253388-582c481c54b0?auto=format&fit=crop&w=800&q=85"
+                    alt="Woman with textured hair"
+                >
+
+
+                <div class="hair-info">
+
+                    <span>
+                        04 / TEXTURE
+                    </span>
+
+                    <h3>
+                        Coily
+                    </h3>
+
+                    <p>
+                        Nourishment & protective care
+                    </p>
+
+                </div>
+
+            </article>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ROUTINE -->
+
+    <section
+        class="section routine-section"
+    >
+
+
+        <div
+            class="routine-panel"
+            id="routine"
+        >
+
+            <div class="routine-number">
+                SANCHÉA HAIR RITUAL / 01
+            </div>
+
+
+            <h2
+                class="routine-title"
+                id="routineTitle"
+            >
+                Soft Wavy Ritual
+            </h2>
+
+
+            <p
+                class="routine-description"
+                id="routineDescription"
+            >
+                Enhance your natural waves without weighing
+                them down. Focus on lightweight hydration,
+                definition and gentle styling.
+            </p>
+
+
+
+            <div
+                class="routine-steps"
+                id="routineSteps"
+            >
+
+                <div class="step">
+
+                    <div class="step-number">
+                        01
+                    </div>
+
+                    <h4>
+                        Cleanse
+                    </h4>
+
+                    <p>
+                        Use a gentle shampoo and focus on
+                        cleansing the scalp without stripping
+                        natural oils.
+                    </p>
+
+                </div>
+
+
+                <div class="step">
+
+                    <div class="step-number">
+                        02
+                    </div>
+
+                    <h4>
+                        Hydrate
+                    </h4>
+
+                    <p>
+                        Apply lightweight conditioner through
+                        the mid-lengths and ends.
+                    </p>
+
+                </div>
+
+
+                <div class="step">
+
+                    <div class="step-number">
+                        03
+                    </div>
+
+                    <h4>
+                        Define
+                    </h4>
+
+                    <p>
+                        Scrunch damp hair gently and allow
+                        your natural wave pattern to form.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <h2>
+            SANCHÉA
+        </h2>
+
+        <p>
+            BEAUTY, PERSONALIZED.
+        </p>
+
+    </footer>
+
+
+
+    <!-- JAVASCRIPT -->
+
+    <script>
+
+        const cards =
+            document.querySelectorAll(".hair-card");
+
+        const title =
+            document.getElementById("routineTitle");
+
+        const description =
+            document.getElementById("routineDescription");
+
+        const steps =
+            document.getElementById("routineSteps");
+
+
+        const routines = {
+
+            wavy: {
+
+                title: "Soft Wavy Ritual",
+
+                description:
+                    "Enhance your natural waves without weighing them down. Focus on lightweight hydration, definition and gentle styling.",
+
+                steps: [
+
+                    [
+                        "Cleanse",
+                        "Use a gentle shampoo and focus on cleansing the scalp without stripping natural oils."
+                    ],
+
+                    [
+                        "Hydrate",
+                        "Apply lightweight conditioner through the mid-lengths and ends."
+                    ],
+
+                    [
+                        "Define",
+                        "Scrunch damp hair gently and allow your natural wave pattern to form."
+                    ]
+
+                ]
+
+            },
+
+
+            curly: {
+
+                title: "Defined Curl Ritual",
+
+                description:
+                    "Give curls the hydration they need while protecting their natural shape and bounce.",
+
+                steps: [
+
+                    [
+                        "Cleanse",
+                        "Choose a gentle cleanser and avoid excessive washing."
+                    ],
+
+                    [
+                        "Deep Hydrate",
+                        "Use a rich conditioner or weekly hair mask for moisture."
+                    ],
+
+                    [
+                        "Define",
+                        "Apply curl-friendly styling product and scrunch gently."
+                    ]
+
+                ]
+
+            },
+
+
+            straight: {
+
+                title: "Silk Straight Ritual",
+
+                description:
+                    "Keep straight hair smooth, lightweight and naturally glossy without creating unnecessary buildup.",
+
+                steps: [
+
+                    [
+                        "Cleanse",
+                        "Use a balanced shampoo to keep the scalp fresh."
+                    ],
+
+                    [
+                        "Condition",
+                        "Apply conditioner mainly to the lengths and ends."
+                    ],
+
+                    [
+                        "Protect",
+                        "Use heat protection before styling with hot tools."
+                    ]
+
+                ]
+
+            },
+
+
+            coily: {
+
+                title: "Nourishing Coily Ritual",
+
+                description:
+                    "Prioritize moisture, gentle handling and protective styling to support healthy textured hair.",
+
+                steps: [
+
+                    [
+                        "Cleanse",
+                        "Use a gentle cleansing routine while protecting the scalp and hair."
+                    ],
+
+                    [
+                        "Deep Condition",
+                        "Use rich hydration regularly to support softness and manageability."
+                    ],
+
+                    [
+                        "Protect",
+                        "Choose gentle protective styles and minimize unnecessary manipulation."
+                    ]
+
+                ]
+
+            }
+
+        };
+
+
+        cards.forEach(card => {
+
+            card.addEventListener("click", () => {
+
+
+                cards.forEach(item => {
+
+                    item.classList.remove("active");
+
+                });
+
+
+                card.classList.add("active");
+
+
+                const type =
+                    card.dataset.type;
+
+
+                const data =
+                    routines[type];
+
+
+                title.style.opacity = "0";
+
+                description.style.opacity = "0";
+
+                steps.style.opacity = "0";
+
+
+                setTimeout(() => {
+
+
+                    title.textContent =
+                        data.title;
+
+
+                    description.textContent =
+                        data.description;
+
+
+                    steps.innerHTML = "";
+
+
+                    data.steps.forEach(
+                        (step, index) => {
+
+
+                            const div =
+                                document.createElement("div");
+
+
+                            div.className =
+                                "step";
+
+
+                            div.innerHTML = `
+
+                                <div class="step-number">
+                                    0${index + 1}
+                                </div>
+
+                                <h4>
+                                    ${step[0]}
+                                </h4>
+
+                                <p>
+                                    ${step[1]}
+                                </p>
+
+                            `;
+
+
+                            steps.appendChild(div);
+
+                        }
+                    );
+
+
+                    title.style.opacity = "1";
+
+                    description.style.opacity = "1";
+
+                    steps.style.opacity = "1";
+
+
+                }, 250);
+
+
+                document
+                    .getElementById("routine")
+                    .scrollIntoView({
+                        behavior: "smooth",
+                        block: "center"
+                    });
+
+            });
+
+        });
+
+
+        /* =========================
+           MOUSE FOLLOW GLOW
+        ========================== */
+
+        document.addEventListener(
+            "mousemove",
+            (event) => {
+
+                const x =
+                    event.clientX;
+
+                const y =
+                    event.clientY;
+
+
+                document.body.style.background = `
+
+                    radial-gradient(
+                        circle at ${x}px ${y}px,
+                        rgba(170,125,75,0.08),
+                        transparent 25%
+                    ),
+                    #0d0c0b
+
+                `;
+
+            }
+        );
+
+    </script>
+
+
+</body>
+
+</html>

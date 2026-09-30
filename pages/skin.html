@@ -1,0 +1,1825 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SANCHÉA | Skin Rituals</title>
+
+    <link rel="stylesheet" href="../style.css">
+
+    <style>
+
+        /* =========================================
+           SANCHÉA — SKIN RITUAL
+        ========================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #f8eeeb;
+            color: #352724;
+            font-family: Arial, Helvetica, sans-serif;
+            overflow-x: hidden;
+        }
+
+        button {
+            font-family: inherit;
+        }
+
+
+        /* =========================================
+           FLOATING ROSE PETALS
+        ========================================== */
+
+        .petals {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .petal {
+            position: absolute;
+
+            width: 15px;
+            height: 23px;
+
+            background: linear-gradient(
+                135deg,
+                #e7a7a8,
+                #c96f78
+            );
+
+            border-radius: 80% 20% 80% 20%;
+
+            opacity: 0.45;
+
+            filter: blur(0.2px);
+
+            animation:
+                fall linear infinite,
+                sway ease-in-out infinite alternate;
+        }
+
+        @keyframes fall {
+
+            0% {
+                transform:
+                    translateY(-100px)
+                    rotate(0deg);
+            }
+
+            100% {
+                transform:
+                    translateY(110vh)
+                    rotate(520deg);
+            }
+
+        }
+
+        @keyframes sway {
+
+            0% {
+                margin-left: -30px;
+            }
+
+            100% {
+                margin-left: 40px;
+            }
+
+        }
+
+
+        /* =========================================
+           NAVBAR
+        ========================================== */
+
+        .skin-nav {
+            position: fixed;
+
+            top: 0;
+            left: 0;
+            width: 100%;
+
+            height: 82px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 6%;
+
+            background: rgba(250, 242, 239, 0.72);
+
+            backdrop-filter: blur(18px);
+
+            border-bottom: 1px solid rgba(120, 80, 75, 0.12);
+
+            z-index: 100;
+        }
+
+        .logo {
+            font-family: Georgia, serif;
+
+            font-size: 24px;
+
+            letter-spacing: 6px;
+
+            color: #352724;
+        }
+
+        .logo span {
+            display: block;
+
+            font-family: Arial, sans-serif;
+
+            font-size: 7px;
+
+            letter-spacing: 3px;
+
+            margin-top: 3px;
+
+            color: #9c6c65;
+        }
+
+        .back-home {
+            text-decoration: none;
+
+            color: #4e3935;
+
+            font-size: 11px;
+
+            letter-spacing: 1.5px;
+
+            padding: 12px 22px;
+
+            border: 1px solid rgba(78, 57, 53, 0.4);
+
+            border-radius: 30px;
+
+            transition: 0.35s ease;
+        }
+
+        .back-home:hover {
+            background: #4e3935;
+
+            color: white;
+
+            transform: translateY(-2px);
+        }
+
+
+        /* =========================================
+           HERO
+        ========================================== */
+
+        .hero {
+            min-height: 100vh;
+
+            position: relative;
+
+            display: flex;
+            align-items: center;
+
+            padding: 120px 8% 70px;
+
+            overflow: hidden;
+
+            background:
+                radial-gradient(
+                    circle at 15% 45%,
+                    rgba(214, 133, 139, 0.25),
+                    transparent 28%
+                ),
+                radial-gradient(
+                    circle at 85% 30%,
+                    rgba(245, 208, 196, 0.9),
+                    transparent 30%
+                ),
+                linear-gradient(
+                    135deg,
+                    #f8eeeb,
+                    #ead3cf
+                );
+        }
+
+        .hero-content {
+            position: relative;
+
+            z-index: 5;
+
+            max-width: 700px;
+        }
+
+        .eyebrow {
+            color: #a75e65;
+
+            font-size: 10px;
+
+            letter-spacing: 4px;
+
+            margin-bottom: 24px;
+        }
+
+        .hero h1 {
+            font-family: Georgia, serif;
+
+            font-size: clamp(55px, 8vw, 105px);
+
+            font-weight: 400;
+
+            line-height: 0.9;
+
+            letter-spacing: -4px;
+        }
+
+        .hero h1 em {
+            color: #a65b64;
+
+            font-style: italic;
+        }
+
+        .hero-description {
+            max-width: 490px;
+
+            margin-top: 30px;
+
+            color: #745d57;
+
+            font-size: 14px;
+
+            line-height: 1.8;
+        }
+
+        .hero-buttons {
+            display: flex;
+
+            gap: 12px;
+
+            margin-top: 35px;
+        }
+
+        .primary-btn,
+        .secondary-btn {
+            padding: 15px 25px;
+
+            border-radius: 30px;
+
+            cursor: pointer;
+
+            font-size: 11px;
+
+            letter-spacing: 1px;
+
+            transition: 0.35s ease;
+        }
+
+        .primary-btn {
+            background: #4b3531;
+
+            color: white;
+
+            border: 1px solid #4b3531;
+        }
+
+        .primary-btn:hover {
+            transform: translateY(-4px);
+
+            box-shadow:
+                0 15px 30px rgba(75, 53, 49, 0.2);
+        }
+
+        .secondary-btn {
+            background: rgba(255,255,255,0.25);
+
+            color: #4b3531;
+
+            border: 1px solid rgba(75,53,49,0.3);
+        }
+
+        .secondary-btn:hover {
+            background: rgba(255,255,255,0.7);
+        }
+
+
+        /* =========================================
+           HERO FLOWER
+        ========================================== */
+
+        .hero-flower {
+            position: absolute;
+
+            right: 5%;
+
+            bottom: -30px;
+
+            width: 390px;
+            height: 390px;
+
+            border-radius: 50%;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(255,255,255,0.8),
+                    rgba(224,160,156,0.15) 55%,
+                    transparent 70%
+                );
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            z-index: 3;
+
+            animation: float 5s ease-in-out infinite;
+        }
+
+        .hero-flower::before {
+            content: "✿";
+
+            font-size: 260px;
+
+            color: rgba(177, 90, 100, 0.32);
+
+            filter: blur(0.5px);
+
+            transform: rotate(-12deg);
+        }
+
+        .bottle {
+            position: absolute;
+
+            width: 105px;
+            height: 180px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #e9c8c0,
+                    #fff5ef,
+                    #d7a59c
+                );
+
+            border-radius: 16px 16px 23px 23px;
+
+            box-shadow:
+                0 30px 50px rgba(74, 45, 42, 0.2);
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            z-index: 5;
+        }
+
+        .bottle::before {
+            content: "";
+
+            position: absolute;
+
+            width: 42px;
+            height: 35px;
+
+            top: -34px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #d59c90,
+                    #fff0e9,
+                    #c9877c
+                );
+
+            border-radius: 6px 6px 0 0;
+        }
+
+        .bottle-text {
+            font-family: Georgia, serif;
+
+            font-size: 12px;
+
+            letter-spacing: 3px;
+
+            transform: rotate(-90deg);
+
+            color: #9c605c;
+        }
+
+        @keyframes float {
+
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
+
+        }
+
+
+        /* =========================================
+           SELECT SECTION
+        ========================================== */
+
+        .ritual-section {
+            position: relative;
+
+            z-index: 5;
+
+            padding: 110px 7%;
+
+            background:
+                linear-gradient(
+                    180deg,
+                    #f8eeeb,
+                    #f4e5e1
+                );
+        }
+
+        .section-top {
+            text-align: center;
+
+            margin-bottom: 45px;
+        }
+
+        .section-top h2 {
+            font-family: Georgia, serif;
+
+            font-size: clamp(38px, 5vw, 65px);
+
+            font-weight: 400;
+
+            line-height: 1;
+        }
+
+        .section-top p {
+            margin-top: 15px;
+
+            color: #826b65;
+
+            font-size: 13px;
+        }
+
+
+        /* =========================================
+           TYPE CARDS
+        ========================================== */
+
+        .skin-options {
+            max-width: 1150px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 14px;
+        }
+
+        .skin-option {
+            position: relative;
+
+            border: 1px solid rgba(124, 80, 75, 0.15);
+
+            background:
+                rgba(255,255,255,0.42);
+
+            backdrop-filter: blur(12px);
+
+            padding: 28px 22px;
+
+            min-height: 155px;
+
+            text-align: left;
+
+            cursor: pointer;
+
+            border-radius: 20px;
+
+            transition:
+                0.4s ease;
+
+            color: #3d2b28;
+        }
+
+        .skin-option:hover {
+            transform:
+                translateY(-8px)
+                scale(1.01);
+
+            background:
+                rgba(255,255,255,0.72);
+
+            box-shadow:
+                0 25px 50px rgba(112, 69, 64, 0.12);
+        }
+
+        .skin-option.active {
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(255,255,255,0.85),
+                    rgba(246,205,204,0.65)
+                );
+
+            border-color: #ce777f;
+
+            box-shadow:
+                0 0 0 2px rgba(206,119,127,0.12),
+                0 25px 55px rgba(130, 71, 75, 0.16);
+        }
+
+        .option-icon {
+            width: 42px;
+            height: 42px;
+
+            border-radius: 50%;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: rgba(255,255,255,0.75);
+
+            font-size: 18px;
+
+            margin-bottom: 18px;
+        }
+
+        .skin-option strong {
+            display: block;
+
+            font-family: Georgia, serif;
+
+            font-size: 22px;
+
+            font-weight: 400;
+        }
+
+        .skin-option small {
+            display: block;
+
+            margin-top: 7px;
+
+            color: #846d67;
+
+            font-size: 10px;
+        }
+
+        .option-arrow {
+            position: absolute;
+
+            right: 20px;
+            top: 22px;
+
+            width: 25px;
+            height: 25px;
+
+            border: 1px solid #cda29d;
+
+            border-radius: 50%;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 12px;
+
+            transition: 0.3s ease;
+        }
+
+        .skin-option:hover .option-arrow {
+            transform: rotate(45deg);
+        }
+
+
+        /* =========================================
+           RESULT PANEL
+        ========================================== */
+
+        .result-panel {
+            max-width: 1150px;
+
+            margin: 25px auto 0;
+
+            display: grid;
+
+            grid-template-columns:
+                0.85fr 1.4fr 0.9fr;
+
+            min-height: 330px;
+
+            overflow: hidden;
+
+            border-radius: 28px;
+
+            background:
+                rgba(255,255,255,0.52);
+
+            backdrop-filter: blur(20px);
+
+            border: 1px solid rgba(125, 78, 73, 0.15);
+
+            box-shadow:
+                0 30px 70px rgba(103, 64, 59, 0.10);
+        }
+
+        .result-visual {
+            position: relative;
+
+            min-height: 330px;
+
+            overflow: hidden;
+
+            background:
+                radial-gradient(
+                    circle at 50% 45%,
+                    #fff8f4,
+                    #e5b5ae
+                );
+        }
+
+        .result-visual::before {
+            content: "✿";
+
+            position: absolute;
+
+            font-size: 300px;
+
+            color: rgba(168, 78, 88, 0.18);
+
+            left: 50%;
+            top: 50%;
+
+            transform:
+                translate(-50%, -50%)
+                rotate(-15deg);
+        }
+
+        .result-visual::after {
+            content: "SANCHÉA";
+
+            position: absolute;
+
+            bottom: 25px;
+            left: 25px;
+
+            font-family: Georgia, serif;
+
+            letter-spacing: 4px;
+
+            font-size: 11px;
+
+            color: #704a46;
+        }
+
+
+        /* =========================================
+           RESULT CONTENT
+        ========================================== */
+
+        .result-content {
+            padding: 45px;
+        }
+
+        .result-label {
+            color: #ae6268;
+
+            font-size: 9px;
+
+            letter-spacing: 3px;
+        }
+
+        .result-content h3 {
+            font-family: Georgia, serif;
+
+            font-size: 42px;
+
+            font-weight: 400;
+
+            margin-top: 10px;
+
+            line-height: 1;
+        }
+
+        .result-description {
+            margin-top: 13px;
+
+            color: #806963;
+
+            font-size: 12px;
+
+            line-height: 1.7;
+        }
+
+        .ritual-steps {
+            display: flex;
+
+            gap: 25px;
+
+            margin-top: 35px;
+        }
+
+        .ritual-step {
+            display: flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            color: #55403b;
+
+            font-size: 10px;
+
+            letter-spacing: 1px;
+        }
+
+        .step-icon {
+            font-size: 17px;
+        }
+
+        .ritual-button {
+            margin-top: 30px;
+
+            padding: 13px 23px;
+
+            border-radius: 30px;
+
+            border: 1px solid #6b4742;
+
+            background: transparent;
+
+            cursor: pointer;
+
+            color: #4d3632;
+
+            font-size: 10px;
+
+            letter-spacing: 1px;
+
+            transition: 0.35s ease;
+        }
+
+        .ritual-button:hover {
+            background: #4d3632;
+
+            color: white;
+
+            transform: translateY(-3px);
+        }
+
+
+        /* =========================================
+           QUICK TIPS
+        ========================================== */
+
+        .quick-tips {
+            padding: 45px 35px;
+
+            border-left: 1px solid rgba(115, 74, 69, 0.12);
+        }
+
+        .quick-tips h4 {
+            font-family: Georgia, serif;
+
+            font-size: 22px;
+
+            font-weight: 400;
+
+            margin-bottom: 22px;
+        }
+
+        .tip {
+            display: flex;
+
+            gap: 12px;
+
+            margin-bottom: 17px;
+
+            color: #705b56;
+
+            font-size: 11px;
+
+            line-height: 1.5;
+        }
+
+        .tip-icon {
+            color: #b8626a;
+
+            font-size: 15px;
+        }
+
+        .avoid {
+            margin-top: 25px;
+
+            padding: 15px;
+
+            background: rgba(228, 157, 160, 0.16);
+
+            border-radius: 12px;
+
+            color: #795b58;
+
+            font-size: 10px;
+
+            line-height: 1.6;
+        }
+
+
+        /* =========================================
+           MINI ASSISTANT
+        ========================================== */
+
+        .assistant-bubble {
+            position: fixed;
+
+            right: 25px;
+            bottom: 25px;
+
+            z-index: 200;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+
+            padding: 13px 18px;
+
+            border-radius: 40px;
+
+            background:
+                rgba(67, 44, 41, 0.94);
+
+            color: white;
+
+            box-shadow:
+                0 15px 35px rgba(48, 30, 27, 0.25);
+
+            cursor: pointer;
+
+            transition: 0.35s ease;
+        }
+
+        .assistant-bubble:hover {
+            transform:
+                translateY(-5px)
+                scale(1.03);
+        }
+
+        .assistant-dot {
+            width: 9px;
+            height: 9px;
+
+            background: #e99aa1;
+
+            border-radius: 50%;
+
+            box-shadow:
+                0 0 12px #e99aa1;
+        }
+
+        .assistant-text strong {
+            display: block;
+
+            font-family: Georgia, serif;
+
+            font-size: 13px;
+
+            font-weight: 400;
+        }
+
+        .assistant-text small {
+            color: #d7bfbb;
+
+            font-size: 8px;
+        }
+
+
+        /* =========================================
+           ANIMATION CLASS
+        ========================================== */
+
+        .change {
+            animation: changeContent 0.45s ease;
+        }
+
+        @keyframes changeContent {
+
+            0% {
+                opacity: 0;
+                transform: translateY(12px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+
+        /* =========================================
+           RESPONSIVE
+        ========================================== */
+
+        @media (max-width: 1000px) {
+
+            .hero-flower {
+                opacity: 0.45;
+
+                right: -80px;
+            }
+
+            .skin-options {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+            .result-panel {
+                grid-template-columns:
+                    1fr 1.5fr;
+            }
+
+            .quick-tips {
+                grid-column: 1 / -1;
+
+                border-left: none;
+
+                border-top:
+                    1px solid rgba(115,74,69,0.12);
+            }
+
+        }
+
+
+        @media (max-width: 700px) {
+
+            .skin-nav {
+                height: 70px;
+            }
+
+            .logo {
+                font-size: 19px;
+            }
+
+            .back-home {
+                padding: 9px 13px;
+
+                font-size: 9px;
+            }
+
+            .hero {
+                padding-top: 120px;
+            }
+
+            .hero h1 {
+                letter-spacing: -2px;
+            }
+
+            .hero-flower {
+                width: 270px;
+                height: 270px;
+
+                right: -90px;
+
+                bottom: 20px;
+            }
+
+            .hero-flower::before {
+                font-size: 180px;
+            }
+
+            .bottle {
+                width: 75px;
+                height: 130px;
+            }
+
+            .skin-options {
+                grid-template-columns: 1fr;
+            }
+
+            .result-panel {
+                grid-template-columns: 1fr;
+            }
+
+            .result-visual {
+                min-height: 230px;
+            }
+
+            .result-content {
+                padding: 30px;
+            }
+
+            .quick-tips {
+                padding: 30px;
+            }
+
+            .ritual-steps {
+                flex-direction: column;
+
+                gap: 12px;
+            }
+
+        }
+
+
+        @media (max-width: 450px) {
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .primary-btn,
+            .secondary-btn {
+                width: 100%;
+            }
+
+            .assistant-bubble {
+                right: 12px;
+                bottom: 12px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================================
+         ROSE PETALS
+    ========================================== -->
+
+    <div class="petals" id="petals"></div>
+
+
+    <!-- =========================================
+         NAVIGATION
+    ========================================== -->
+
+    <nav class="skin-nav">
+
+        <div class="logo">
+
+            SANCHÉA
+
+            <span>
+                BEAUTY INTELLIGENCE
+            </span>
+
+        </div>
+
+
+        <a
+            href="../index.html"
+            class="back-home">
+
+            ← Back to Home
+
+        </a>
+
+    </nav>
+
+
+    <!-- =========================================
+         HERO
+    ========================================== -->
+
+    <section class="hero">
+
+
+        <div class="hero-content">
+
+            <p class="eyebrow">
+                01 / SKIN RITUALS
+            </p>
+
+
+            <h1>
+
+                Your Skin,
+                <br>
+
+                Your <em>Ritual.</em>
+
+            </h1>
+
+
+            <p class="hero-description">
+
+                Understand what your skin needs.
+                Choose your ritual.
+                Let SANCHÉA guide your glow.
+
+            </p>
+
+
+            <div class="hero-buttons">
+
+                <button
+                    class="primary-btn"
+                    onclick="scrollToRitual()">
+
+                    Discover My Ritual
+                    ↓
+
+                </button>
+
+
+                <button
+                    class="secondary-btn"
+                    onclick="randomRitual()">
+
+                    ✦ Surprise Me
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="hero-flower">
+
+            <div class="bottle">
+
+                <span class="bottle-text">
+                    SANCHÉA
+                </span>
+
+            </div>
+
+        </div>
+
+
+    </section>
+
+
+    <!-- =========================================
+         RITUAL SECTION
+    ========================================== -->
+
+    <section
+        class="ritual-section"
+        id="ritual">
+
+
+        <div class="section-top">
+
+            <p class="eyebrow">
+                CHOOSE YOUR RITUAL
+            </p>
+
+            <h2>
+                What does your skin need?
+            </h2>
+
+            <p>
+                Tap a feeling. We'll shape the ritual.
+            </p>
+
+        </div>
+
+
+        <!-- =====================================
+             OPTIONS
+        ====================================== -->
+
+        <div class="skin-options">
+
+
+            <button
+                class="skin-option active"
+                data-type="Balanced">
+
+                <div class="option-icon">
+                    ✦
+                </div>
+
+                <strong>
+                    Balanced
+                </strong>
+
+                <small>
+                    Maintain your natural glow.
+                </small>
+
+                <span class="option-arrow">
+                    →
+                </span>
+
+            </button>
+
+
+            <button
+                class="skin-option"
+                data-type="Dry">
+
+                <div class="option-icon">
+                    💧
+                </div>
+
+                <strong>
+                    Dry
+                </strong>
+
+                <small>
+                    More hydration, please.
+                </small>
+
+                <span class="option-arrow">
+                    →
+                </span>
+
+            </button>
+
+
+            <button
+                class="skin-option"
+                data-type="Oily">
+
+                <div class="option-icon">
+                    ◌
+                </div>
+
+                <strong>
+                    Oily
+                </strong>
+
+                <small>
+                    Control & balance.
+                </small>
+
+                <span class="option-arrow">
+                    →
+                </span>
+
+            </button>
+
+
+            <button
+                class="skin-option"
+                data-type="Confidence">
+
+                <div class="option-icon">
+                    ♡
+                </div>
+
+                <strong>
+                    Confidence
+                </strong>
+
+                <small>
+                    Look good. Feel better.
+                </small>
+
+                <span class="option-arrow">
+                    →
+                </span>
+
+            </button>
+
+
+        </div>
+
+
+        <!-- =====================================
+             RESULT
+        ====================================== -->
+
+        <div
+            class="result-panel"
+            id="resultPanel">
+
+
+            <!-- VISUAL -->
+
+            <div class="result-visual"></div>
+
+
+            <!-- CONTENT -->
+
+            <div class="result-content">
+
+                <span class="result-label">
+                    YOUR RITUAL
+                </span>
+
+
+                <h3 id="resultTitle">
+                    Balanced Skin Ritual
+                </h3>
+
+
+                <p
+                    class="result-description"
+                    id="resultDescription">
+
+                    Simple care.
+                    Long-lasting glow.
+
+                </p>
+
+
+                <div
+                    class="ritual-steps"
+                    id="ritualSteps">
+                </div>
+
+
+                <button
+                    class="ritual-button"
+                    onclick="showRoutineMessage()">
+
+                    View Full Routine
+                    →
+
+                </button>
+
+            </div>
+
+
+            <!-- QUICK TIPS -->
+
+            <div class="quick-tips">
+
+                <h4>
+                    Quick Tips
+                </h4>
+
+
+                <div
+                    id="tipsContainer">
+                </div>
+
+
+                <div
+                    class="avoid"
+                    id="avoidText">
+
+                    ♡ Avoid over-cleansing
+                    or using too many active
+                    products together.
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+    <!-- =========================================
+         AI ASSISTANT
+    ========================================== -->
+
+    <div
+        class="assistant-bubble"
+        onclick="assistantMessage()">
+
+        <div class="assistant-dot"></div>
+
+        <div class="assistant-text">
+
+            <strong>
+                Ask SANCHÉA
+            </strong>
+
+            <small>
+                Your beauty companion ♡
+            </small>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================================
+         JAVASCRIPT
+    ========================================== -->
+
+    <script>
+
+
+        /* =========================================
+           ROSE PETALS
+        ========================================== */
+
+        const petals =
+            document.getElementById("petals");
+
+
+        for (let i = 0; i < 25; i++) {
+
+            const petal =
+                document.createElement("span");
+
+            petal.className = "petal";
+
+            petal.style.left =
+                Math.random() * 100 + "%";
+
+            petal.style.animationDuration =
+                (7 + Math.random() * 9) + "s";
+
+            petal.style.animationDelay =
+                (Math.random() * 8) + "s";
+
+            petal.style.transform =
+                `rotate(${Math.random() * 360}deg)`;
+
+            petal.style.opacity =
+                0.18 + Math.random() * 0.35;
+
+            const size =
+                8 + Math.random() * 12;
+
+            petal.style.width =
+                size + "px";
+
+            petal.style.height =
+                size * 1.5 + "px";
+
+            petals.appendChild(petal);
+
+        }
+
+
+        /* =========================================
+           DATA
+        ========================================== */
+
+        const rituals = {
+
+
+            Balanced: {
+
+                title:
+                    "Balanced Skin Ritual",
+
+                description:
+                    "Simple care. Long-lasting glow.",
+
+                steps: [
+                    ["♧", "Cleanse"],
+                    ["♢", "Hydrate"],
+                    ["☼", "Protect"]
+                ],
+
+                tips: [
+                    "Keep your routine simple.",
+                    "Stay hydrated, inside and out.",
+                    "Use sunscreen every day."
+                ],
+
+                avoid:
+                    "♡ Avoid over-cleansing or too many active products."
+
+            },
+
+
+            Dry: {
+
+                title:
+                    "Hydration Skin Ritual",
+
+                description:
+                    "Comfort first. Soft, nourished skin.",
+
+                steps: [
+                    ["♧", "Gentle Cleanse"],
+                    ["♢", "Deep Hydrate"],
+                    ["☼", "Protect"]
+                ],
+
+                tips: [
+                    "Moisturize while skin is slightly damp.",
+                    "Choose gentle products.",
+                    "Avoid very hot water."
+                ],
+
+                avoid:
+                    "♡ Avoid harsh scrubs and excessive cleansing."
+
+            },
+
+
+            Oily: {
+
+                title:
+                    "Balanced Oil Ritual",
+
+                description:
+                    "Lightweight care. Fresh, comfortable skin.",
+
+                steps: [
+                    ["♧", "Gentle Cleanse"],
+                    ["♢", "Light Moisture"],
+                    ["☼", "SPF"]
+                ],
+
+                tips: [
+                    "Keep cleansing gentle.",
+                    "Choose comfortable lightweight textures.",
+                    "Moisturize even when skin feels oily."
+                ],
+
+                avoid:
+                    "♡ Avoid aggressive scrubbing or repeatedly washing your face."
+
+            },
+
+
+            Confidence: {
+
+                title:
+                    "Everyday Confidence Ritual",
+
+                description:
+                    "A simple beauty ritual to help you feel polished and ready.",
+
+                steps: [
+                    ["♡", "Fresh Start"],
+                    ["✦", "Groom"],
+                    ["☼", "Your Signature"]
+                ],
+
+                tips: [
+                    "Take a few minutes for personal grooming.",
+                    "Choose one signature detail you love.",
+                    "Focus on feeling comfortable, not perfect."
+                ],
+
+                avoid:
+                    "♡ Avoid comparing yourself with unrealistic beauty standards."
+
+            }
+
+        };
+
+
+        /* =========================================
+           ELEMENTS
+        ========================================== */
+
+        const options =
+            document.querySelectorAll(".skin-option");
+
+        const resultTitle =
+            document.getElementById("resultTitle");
+
+        const resultDescription =
+            document.getElementById("resultDescription");
+
+        const ritualSteps =
+            document.getElementById("ritualSteps");
+
+        const tipsContainer =
+            document.getElementById("tipsContainer");
+
+        const avoidText =
+            document.getElementById("avoidText");
+
+        const resultPanel =
+            document.getElementById("resultPanel");
+
+
+        /* =========================================
+           UPDATE RESULT
+        ========================================== */
+
+        function updateRitual(type) {
+
+            const data =
+                rituals[type];
+
+
+            resultPanel.classList.remove("change");
+
+            void resultPanel.offsetWidth;
+
+            resultPanel.classList.add("change");
+
+
+            resultTitle.textContent =
+                data.title;
+
+
+            resultDescription.textContent =
+                data.description;
+
+
+            ritualSteps.innerHTML = "";
+
+
+            data.steps.forEach(step => {
+
+                const element =
+                    document.createElement("div");
+
+                element.className =
+                    "ritual-step";
+
+                element.innerHTML = `
+
+                    <span class="step-icon">
+                        ${step[0]}
+                    </span>
+
+                    <span>
+                        ${step[1]}
+                    </span>
+
+                `;
+
+                ritualSteps.appendChild(element);
+
+            });
+
+
+            tipsContainer.innerHTML = "";
+
+
+            data.tips.forEach(tip => {
+
+                const element =
+                    document.createElement("div");
+
+                element.className =
+                    "tip";
+
+                element.innerHTML = `
+
+                    <span class="tip-icon">
+                        ♡
+                    </span>
+
+                    <span>
+                        ${tip}
+                    </span>
+
+                `;
+
+                tipsContainer.appendChild(element);
+
+            });
+
+
+            avoidText.textContent =
+                data.avoid;
+
+        }
+
+
+        /* =========================================
+           OPTION CLICK
+        ========================================== */
+
+        options.forEach(option => {
+
+            option.addEventListener(
+                "click",
+                () => {
+
+                    options.forEach(item => {
+
+                        item.classList.remove("active");
+
+                    });
+
+
+                    option.classList.add("active");
+
+
+                    const type =
+                        option.dataset.type;
+
+
+                    updateRitual(type);
+
+                }
+            );
+
+        });
+
+
+        /* =========================================
+           SCROLL
+        ========================================== */
+
+        function scrollToRitual() {
+
+            document
+                .getElementById("ritual")
+                .scrollIntoView({
+                    behavior: "smooth"
+                });
+
+        }
+
+
+        /* =========================================
+           SURPRISE ME
+        ========================================== */
+
+        function randomRitual() {
+
+            const types =
+                ["Balanced", "Dry", "Oily", "Confidence"];
+
+            const random =
+                types[
+                    Math.floor(
+                        Math.random() * types.length
+                    )
+                ];
+
+
+            options.forEach(option => {
+
+                option.classList.remove("active");
+
+                if (
+                    option.dataset.type === random
+                ) {
+                    option.classList.add("active");
+                }
+
+            });
+
+
+            updateRitual(random);
+
+
+            document
+                .getElementById("ritual")
+                .scrollIntoView({
+                    behavior: "smooth"
+                });
+
+        }
+
+
+        /* =========================================
+           FULL ROUTINE BUTTON
+        ========================================== */
+
+        function showRoutineMessage() {
+
+            alert(
+                "Your full personalized ritual will be available here in the next SANCHÉA update ✦"
+            );
+
+        }
+
+
+        /* =========================================
+           ASSISTANT
+        ========================================== */
+
+        function assistantMessage() {
+
+            alert(
+                "Hi! I'm SANCHÉA Beauty Assistant ♡\n\nVoice + typing assistance is coming next."
+            );
+
+        }
+
+
+        /* =========================================
+           INITIAL LOAD
+        ========================================== */
+
+        updateRitual("Balanced");
+
+
+    </script>
+
+
+</body>
+
+</html>

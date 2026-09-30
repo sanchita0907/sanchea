@@ -1,0 +1,2623 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SANCHÉA — Everyday Grooming</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&display=swap"
+          rel="stylesheet">
+
+
+<style>
+
+/* =====================================================
+   RESET
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+
+    background:
+        radial-gradient(
+            circle at 10% 15%,
+            rgba(171, 91, 102, 0.15),
+            transparent 28%
+        ),
+
+        radial-gradient(
+            circle at 90% 70%,
+            rgba(139, 72, 83, 0.12),
+            transparent 30%
+        ),
+
+        #120d10;
+
+    color: #f5edef;
+
+    font-family:
+        "DM Sans",
+        sans-serif;
+
+    overflow-x: hidden;
+}
+
+
+/* =====================================================
+   FLOATING HEARTS / PETALS
+===================================================== */
+
+.float {
+
+    position: fixed;
+
+    top: -30px;
+
+    width: 13px;
+    height: 13px;
+
+    background:
+        rgba(210, 126, 138, 0.55);
+
+    transform:
+        rotate(45deg);
+
+    border-radius:
+        3px 8px 3px 8px;
+
+    pointer-events: none;
+
+    z-index: 30;
+
+    animation:
+        floatDown linear infinite;
+
+    box-shadow:
+        0 0 12px
+        rgba(210,126,138,0.25);
+}
+
+.float::before,
+.float::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 13px;
+    height: 13px;
+
+    background:
+        inherit;
+
+    border-radius: 50%;
+}
+
+.float::before {
+
+    top: -6px;
+    left: 0;
+}
+
+.float::after {
+
+    top: 0;
+    left: -6px;
+}
+
+
+.float:nth-child(1) {
+    left: 4%;
+    animation-duration: 13s;
+}
+
+.float:nth-child(2) {
+    left: 15%;
+    animation-duration: 17s;
+    animation-delay: 3s;
+}
+
+.float:nth-child(3) {
+    left: 28%;
+    animation-duration: 12s;
+    animation-delay: 5s;
+}
+
+.float:nth-child(4) {
+    left: 42%;
+    animation-duration: 16s;
+    animation-delay: 1s;
+}
+
+.float:nth-child(5) {
+    left: 57%;
+    animation-duration: 14s;
+    animation-delay: 4s;
+}
+
+.float:nth-child(6) {
+    left: 70%;
+    animation-duration: 18s;
+    animation-delay: 2s;
+}
+
+.float:nth-child(7) {
+    left: 84%;
+    animation-duration: 13s;
+    animation-delay: 6s;
+}
+
+.float:nth-child(8) {
+    left: 95%;
+    animation-duration: 15s;
+    animation-delay: 1s;
+}
+
+
+@keyframes floatDown {
+
+    0% {
+
+        transform:
+            translateY(-50px)
+            translateX(0)
+            rotate(45deg);
+
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0.65;
+    }
+
+    50% {
+
+        transform:
+            translateY(50vh)
+            translateX(70px)
+            rotate(160deg);
+    }
+
+    100% {
+
+        transform:
+            translateY(110vh)
+            translateX(-60px)
+            rotate(320deg);
+
+        opacity: 0;
+    }
+}
+
+
+/* =====================================================
+   NAVBAR
+===================================================== */
+
+nav {
+
+    position: relative;
+
+    z-index: 20;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding:
+        27px 7%;
+
+    background:
+        rgba(18,13,16,0.75);
+
+    backdrop-filter:
+        blur(18px);
+
+    border-bottom:
+        1px solid
+        rgba(255,255,255,0.07);
+}
+
+.logo {
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-size: 25px;
+
+    letter-spacing: 5px;
+
+    color: #e0aeb6;
+}
+
+.back-home {
+
+    color: #a99ca0;
+
+    text-decoration: none;
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+    transition: 0.3s;
+}
+
+.back-home:hover {
+    color: #e0aeb6;
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero {
+
+    min-height: 88vh;
+
+    display: grid;
+
+    grid-template-columns:
+        1.05fr 0.95fr;
+
+    align-items: center;
+
+    gap: 70px;
+
+    padding:
+        90px 8%;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+.eyebrow {
+
+    font-size: 10px;
+
+    letter-spacing: 4px;
+
+    color: #c77e89;
+
+    margin-bottom: 22px;
+}
+
+.hero h1 {
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-size:
+        clamp(55px, 7vw, 100px);
+
+    font-weight: 400;
+
+    line-height: 0.95;
+
+    margin-bottom: 30px;
+}
+
+.hero h1 span {
+
+    display: block;
+
+    color: #d68e9b;
+
+    font-style: italic;
+}
+
+.hero-text {
+
+    max-width: 540px;
+
+    color: #a69b9f;
+
+    font-size: 15px;
+
+    line-height: 1.9;
+}
+
+.hero-button {
+
+    display: inline-flex;
+
+    margin-top: 35px;
+
+    padding:
+        15px 25px;
+
+    color: #e8c0c7;
+
+    text-decoration: none;
+
+    border:
+        1px solid
+        #9c5966;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    transition: 0.35s;
+}
+
+.hero-button:hover {
+
+    background:
+        #9c5966;
+
+    color: white;
+
+    transform:
+        translateY(-4px);
+
+    box-shadow:
+        0 15px 35px
+        rgba(150,70,85,0.25);
+}
+
+
+/* =====================================================
+   HERO IMAGE
+===================================================== */
+
+.hero-image {
+
+    height: 600px;
+
+    position: relative;
+
+    overflow: hidden;
+
+    border:
+        1px solid
+        rgba(214,142,155,0.25);
+
+    box-shadow:
+        0 35px 90px
+        rgba(0,0,0,0.55);
+}
+
+.hero-image img {
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition:
+        transform 1s ease;
+}
+
+.hero-image:hover img {
+    transform: scale(1.06);
+}
+
+.hero-image::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            transparent 30%,
+            rgba(15,8,11,0.9)
+        );
+}
+
+.hero-caption {
+
+    position: absolute;
+
+    z-index: 4;
+
+    bottom: 30px;
+
+    left: 30px;
+}
+
+.hero-caption small {
+
+    display: block;
+
+    color: #d08b96;
+
+    letter-spacing: 3px;
+
+    font-size: 9px;
+
+    margin-bottom: 8px;
+}
+
+.hero-caption strong {
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-size: 30px;
+
+    font-weight: 400;
+}
+
+
+/* =====================================================
+   SECTION
+===================================================== */
+
+.section {
+
+    padding:
+        110px 8%;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+.section-heading {
+
+    max-width: 720px;
+
+    margin:
+        0 auto 60px;
+
+    text-align: center;
+}
+
+.section-heading h2 {
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-weight: 400;
+
+    font-size:
+        clamp(40px, 5vw, 65px);
+
+    line-height: 1;
+
+    margin-bottom: 22px;
+}
+
+.section-heading h2 em {
+
+    color: #d28a96;
+}
+
+.section-heading p:last-child {
+
+    color: #93898e;
+
+    line-height: 1.8;
+}
+
+
+/* =====================================================
+   GROOMING CARDS
+===================================================== */
+
+.groom-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 20px;
+}
+
+.groom-card {
+
+    position: relative;
+
+    min-height: 420px;
+
+    padding: 35px;
+
+    overflow: hidden;
+
+    cursor: pointer;
+
+    background:
+        linear-gradient(
+            145deg,
+            #24171b,
+            #171013
+        );
+
+    border:
+        1px solid
+        rgba(255,255,255,0.07);
+
+    transition:
+        transform 0.4s ease,
+        border-color 0.4s ease,
+        box-shadow 0.4s ease;
+}
+
+.groom-card:hover {
+
+    transform:
+        translateY(-10px);
+
+    border-color:
+        rgba(210,138,150,0.6);
+
+    box-shadow:
+        0 25px 60px
+        rgba(130,54,69,0.25);
+}
+
+.groom-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 180px;
+    height: 180px;
+
+    right: -80px;
+    top: -80px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(200,100,115,0.09);
+}
+
+.card-number {
+
+    color: #8f5963;
+
+    font-size: 11px;
+
+    letter-spacing: 3px;
+}
+
+.card-icon {
+
+    font-size: 45px;
+
+    margin:
+        55px 0 25px;
+
+    filter:
+        drop-shadow(
+            0 5px 15px
+            rgba(210,120,135,0.25)
+        );
+}
+
+.groom-card h3 {
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-size: 32px;
+
+    font-weight: 400;
+
+    margin-bottom: 15px;
+}
+
+.groom-card p {
+
+    color: #988e93;
+
+    font-size: 13px;
+
+    line-height: 1.8;
+}
+
+.open-guide {
+
+    position: absolute;
+
+    bottom: 30px;
+
+    left: 35px;
+
+    color: #d18a96;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+}
+
+
+/* =====================================================
+   GUIDE AREA
+===================================================== */
+
+.guide-area {
+
+    max-width: 1050px;
+
+    margin: auto;
+}
+
+.guide {
+
+    display: none;
+
+    background:
+        #1b1216;
+
+    border:
+        1px solid
+        rgba(210,138,150,0.22);
+
+    padding:
+        55px;
+
+    margin-bottom: 25px;
+
+    animation:
+        guideOpen 0.5s ease;
+}
+
+.guide.active {
+    display: block;
+}
+
+@keyframes guideOpen {
+
+    from {
+        opacity: 0;
+        transform:
+            translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform:
+            translateY(0);
+    }
+}
+
+.guide-top {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 30px;
+
+    margin-bottom: 40px;
+}
+
+.guide h3 {
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-size: 42px;
+
+    font-weight: 400;
+}
+
+.close-guide {
+
+    width: 40px;
+    height: 40px;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.12);
+
+    background:
+        transparent;
+
+    color: #b9aeb2;
+
+    cursor: pointer;
+
+    font-size: 18px;
+
+    transition: 0.3s;
+}
+
+.close-guide:hover {
+
+    border-color:
+        #d18a96;
+
+    color:
+        #d18a96;
+}
+
+.guide-intro {
+
+    color: #aaa0a4;
+
+    line-height: 1.9;
+
+    margin-bottom: 35px;
+}
+
+
+/* =====================================================
+   STEPS
+===================================================== */
+
+.steps {
+
+    display: grid;
+
+    gap: 15px;
+}
+
+.step {
+
+    display: grid;
+
+    grid-template-columns:
+        55px 1fr;
+
+    gap: 20px;
+
+    padding:
+        22px;
+
+    background:
+        rgba(255,255,255,0.025);
+
+    border:
+        1px solid
+        rgba(255,255,255,0.05);
+}
+
+.step-number {
+
+    color: #d18a96;
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-size: 24px;
+}
+
+.step h4 {
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    margin-bottom: 7px;
+
+    color: #eadde0;
+}
+
+.step p {
+
+    color: #968b90;
+
+    font-size: 13px;
+
+    line-height: 1.75;
+}
+
+
+/* =====================================================
+   ROUTINE
+===================================================== */
+
+.routine {
+
+    margin-top: 35px;
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 15px;
+}
+
+.routine-box {
+
+    padding: 25px;
+
+    background:
+        rgba(210,138,150,0.06);
+
+    border:
+        1px solid
+        rgba(210,138,150,0.12);
+}
+
+.routine-box h4 {
+
+    color: #d895a0;
+
+    margin-bottom: 15px;
+}
+
+.routine-box li {
+
+    list-style: none;
+
+    color: #a79b9f;
+
+    font-size: 12px;
+
+    line-height: 2;
+
+}
+
+.routine-box li::before {
+
+    content: "♡ ";
+
+    color: #c97987;
+}
+
+
+/* =====================================================
+   GROOMING CHECKLIST
+===================================================== */
+
+.check-section {
+
+    max-width: 950px;
+
+    margin: auto;
+
+    padding:
+        55px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(177,82,99,0.12),
+            rgba(255,255,255,0.025)
+        );
+
+    border:
+        1px solid
+        rgba(210,138,150,0.18);
+}
+
+.check-section h2 {
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-size: 45px;
+
+    font-weight: 400;
+
+    margin-bottom: 15px;
+}
+
+.check-section > p {
+
+    color: #958a8f;
+
+    line-height: 1.8;
+
+    margin-bottom: 30px;
+}
+
+.checklist {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 12px;
+}
+
+.check-item {
+
+    display: flex;
+
+    gap: 13px;
+
+    align-items: center;
+
+    padding: 15px;
+
+    background:
+        rgba(255,255,255,0.035);
+
+    color: #bdb1b5;
+
+    font-size: 12px;
+
+    cursor: pointer;
+
+    transition: 0.25s;
+}
+
+.check-item:hover {
+
+    background:
+        rgba(210,138,150,0.08);
+}
+
+.check-item input {
+
+    accent-color:
+        #c97987;
+}
+
+
+/* =====================================================
+   MINI TIPS
+===================================================== */
+
+.tips-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 15px;
+}
+
+.tip {
+
+    padding: 28px;
+
+    min-height: 190px;
+
+    background:
+        #1b1317;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.06);
+
+    transition: 0.35s;
+}
+
+.tip:hover {
+
+    transform:
+        translateY(-7px);
+
+    border-color:
+        rgba(210,138,150,0.4);
+}
+
+.tip-icon {
+
+    font-size: 28px;
+
+    margin-bottom: 20px;
+}
+
+.tip h4 {
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-size: 21px;
+
+    font-weight: 400;
+
+    margin-bottom: 9px;
+}
+
+.tip p {
+
+    color: #91878c;
+
+    font-size: 11px;
+
+    line-height: 1.7;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer {
+
+    text-align: center;
+
+    padding:
+        75px 8% 45px;
+
+    border-top:
+        1px solid
+        rgba(255,255,255,0.07);
+}
+
+footer h2 {
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-size: 36px;
+
+    font-weight: 400;
+
+    margin-bottom: 10px;
+}
+
+footer p {
+
+    color: #766c71;
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 950px) {
+
+    .hero {
+
+        grid-template-columns: 1fr;
+    }
+
+    .hero-image {
+
+        height: 500px;
+    }
+
+    .groom-grid {
+
+        grid-template-columns:
+            1fr;
+    }
+
+    .tips-grid {
+
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .hero,
+    .section {
+
+        padding-left: 6%;
+        padding-right: 6%;
+    }
+
+    .hero-image {
+
+        height: 450px;
+    }
+
+    .guide {
+
+        padding: 30px;
+    }
+
+    .guide h3 {
+
+        font-size: 32px;
+    }
+
+    .routine,
+    .checklist {
+
+        grid-template-columns: 1fr;
+    }
+
+    .tips-grid {
+
+        grid-template-columns: 1fr;
+    }
+
+    .check-section {
+
+        padding: 30px;
+    }
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     FLOATING HEARTS
+===================================================== -->
+
+<div class="float"></div>
+<div class="float"></div>
+<div class="float"></div>
+<div class="float"></div>
+<div class="float"></div>
+<div class="float"></div>
+<div class="float"></div>
+<div class="float"></div>
+
+
+<!-- =====================================================
+     NAV
+===================================================== -->
+
+<nav>
+
+    <div class="logo">
+        SANCHÉA
+    </div>
+
+    <a
+        href="../index.html"
+        class="back-home"
+    >
+        ← BACK TO SANCHÉA
+    </a>
+
+</nav>
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="hero">
+
+    <div>
+
+        <p class="eyebrow">
+            SANCHÉA / EVERYDAY GROOMING
+        </p>
+
+        <h1>
+
+            Look
+
+            <span>
+                put together.
+            </span>
+
+        </h1>
+
+        <p class="hero-text">
+
+            Grooming isn't about looking perfect.
+            It's about creating small habits that make
+            you feel clean, comfortable, confident and
+            ready for whatever the day brings.
+
+        </p>
+
+        <a
+            href="#guides"
+            class="hero-button"
+        >
+            EXPLORE YOUR GROOMING GUIDE →
+        </a>
+
+    </div>
+
+
+    <div class="hero-image">
+
+        <img
+            src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1000&q=85"
+            alt="Elegant everyday style"
+        >
+
+        <div class="hero-caption">
+
+            <small>
+                THE EVERYDAY EDIT
+            </small>
+
+            <strong>
+                Soft. Clean. Confident.
+            </strong>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     GUIDES
+===================================================== -->
+
+<section
+    class="section"
+    id="guides"
+>
+
+    <div class="section-heading">
+
+        <p class="eyebrow">
+            CHOOSE YOUR MOMENT
+        </p>
+
+        <h2>
+
+            Grooming for
+
+            <em>
+                real life.
+            </em>
+
+        </h2>
+
+        <p>
+
+            College mornings, professional days,
+            weekend plans and travel all need slightly
+            different routines.
+
+            Choose one to explore.
+
+        </p>
+
+    </div>
+
+
+    <div class="groom-grid">
+
+
+        <!-- COLLEGE -->
+
+        <article
+            class="groom-card"
+            data-guide="college"
+        >
+
+            <div class="card-number">
+                01 / COLLEGE
+            </div>
+
+            <div class="card-icon">
+                🎒
+            </div>
+
+            <h3>
+                Campus Ready
+            </h3>
+
+            <p>
+
+                A simple, fresh routine for lectures,
+                presentations, practicals and long
+                college days.
+
+            </p>
+
+            <span class="open-guide">
+                OPEN GUIDE →
+            </span>
+
+        </article>
+
+
+        <!-- OFFICE -->
+
+        <article
+            class="groom-card"
+            data-guide="office"
+        >
+
+            <div class="card-number">
+                02 / OFFICE
+            </div>
+
+            <div class="card-icon">
+                💼
+            </div>
+
+            <h3>
+                Office Ready
+            </h3>
+
+            <p>
+
+                Polished grooming without looking
+                overdone — ideal for internships,
+                interviews and professional spaces.
+
+            </p>
+
+            <span class="open-guide">
+                OPEN GUIDE →
+            </span>
+
+        </article>
+
+
+        <!-- TRAVEL -->
+
+        <article
+            class="groom-card"
+            data-guide="travel"
+        >
+
+            <div class="card-number">
+                03 / TRAVEL
+            </div>
+
+            <div class="card-icon">
+                ✈️
+            </div>
+
+            <h3>
+                Trip Ready
+            </h3>
+
+            <p>
+
+                A practical travel grooming routine
+                covering skin, hair, hygiene, sun
+                protection and your mini kit.
+
+            </p>
+
+            <span class="open-guide">
+                OPEN GUIDE →
+            </span>
+
+        </article>
+
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     DETAILED GUIDES
+===================================================== -->
+
+<section class="section">
+
+<div class="guide-area">
+
+
+<!-- =====================================================
+     COLLEGE GUIDE
+===================================================== -->
+
+<div
+    class="guide"
+    id="collegeGuide"
+>
+
+    <div class="guide-top">
+
+        <div>
+
+            <p class="eyebrow">
+                01 / CAMPUS READY
+            </p>
+
+            <h3>
+                Your college grooming ritual
+            </h3>
+
+        </div>
+
+        <button
+            class="close-guide"
+            data-close
+        >
+            ×
+        </button>
+
+    </div>
+
+
+    <p class="guide-intro">
+
+        College grooming should be realistic:
+        quick enough for busy mornings, comfortable
+        enough for long days and polished enough for
+        presentations or meeting new people.
+
+        The goal is not heavy makeup — it's looking
+        clean, fresh and intentional.
+
+    </p>
+
+
+    <div class="steps">
+
+
+        <div class="step">
+
+            <div class="step-number">
+                01
+            </div>
+
+            <div>
+
+                <h4>
+                    Start with clean skin
+                </h4>
+
+                <p>
+
+                    Wash your face according to your
+                    skin's needs. If you have been
+                    sweating, cleanse after the activity.
+                    Keep the routine gentle rather than
+                    constantly adding new products.
+
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="step-number">
+                02
+            </div>
+
+            <div>
+
+                <h4>
+                    Moisturize appropriately
+                </h4>
+
+                <p>
+
+                    Use a moisturizer that suits your
+                    skin type. The aim is comfortable,
+                    hydrated skin rather than a heavy
+                    layer of products.
+
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="step-number">
+                03
+            </div>
+
+            <div>
+
+                <h4>
+                    Don't skip sun protection
+                </h4>
+
+                <p>
+
+                    If you are going outdoors during
+                    the day, use a broad-spectrum,
+                    water-resistant sunscreen with
+                    SPF 30 or higher. Apply before
+                    going outside and reapply when
+                    appropriate during extended
+                    outdoor exposure.
+
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="step-number">
+                04
+            </div>
+
+            <div>
+
+                <h4>
+                    Keep hair intentional
+                </h4>
+
+                <p>
+
+                    Choose a hairstyle that stays
+                    comfortable throughout lectures.
+                    Avoid excessive heat styling.
+                    If your hair is wet, detangle
+                    gently rather than aggressively.
+
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="step-number">
+                05
+            </div>
+
+            <div>
+
+                <h4>
+                    Freshness matters
+                </h4>
+
+                <p>
+
+                    Clean clothes, fresh breath,
+                    trimmed nails, deodorant if you
+                    use it, and a tidy bag can make
+                    your overall presentation feel
+                    much more put together.
+
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="step-number">
+                06
+            </div>
+
+            <div>
+
+                <h4>
+                    Keep makeup optional
+                </h4>
+
+                <p>
+
+                    If you enjoy makeup, a simple
+                    combination such as lip balm,
+                    subtle blush and groomed brows
+                    can create a polished everyday
+                    look without requiring a long
+                    morning routine.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="routine">
+
+        <div class="routine-box">
+
+            <h4>
+                🎒 College Bag Mini Kit
+            </h4>
+
+            <ul>
+
+                <li>SPF lip balm</li>
+                <li>Small sunscreen</li>
+                <li>Comb / hair tie</li>
+                <li>Tissues</li>
+                <li>Hand sanitizer</li>
+                <li>Small mirror</li>
+
+            </ul>
+
+        </div>
+
+
+        <div class="routine-box">
+
+            <h4>
+                ✨ Presentation Day
+            </h4>
+
+            <ul>
+
+                <li>Neat hairstyle</li>
+                <li>Clean nails</li>
+                <li>Fresh breath</li>
+                <li>Simple accessories</li>
+                <li>Light, comfortable makeup</li>
+                <li>Ironed outfit</li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     OFFICE GUIDE
+===================================================== -->
+
+<div
+    class="guide"
+    id="officeGuide"
+>
+
+    <div class="guide-top">
+
+        <div>
+
+            <p class="eyebrow">
+                02 / OFFICE READY
+            </p>
+
+            <h3>
+                Professional without overdoing it
+            </h3>
+
+        </div>
+
+        <button
+            class="close-guide"
+            data-close
+        >
+            ×
+        </button>
+
+    </div>
+
+
+    <p class="guide-intro">
+
+        Professional grooming is mainly about
+        consistency and cleanliness. You don't need
+        expensive products or a complicated routine.
+        Focus on neat hair, comfortable skin,
+        fresh hygiene and an outfit appropriate
+        for the workplace.
+
+    </p>
+
+
+    <div class="steps">
+
+
+        <div class="step">
+
+            <div class="step-number">
+                01
+            </div>
+
+            <div>
+
+                <h4>
+                    Plan your outfit the night before
+                </h4>
+
+                <p>
+
+                    Check your clothes, shoes and
+                    accessories before sleeping.
+                    This removes morning stress and
+                    gives you time to notice wrinkles,
+                    stains or missing pieces.
+
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="step-number">
+                02
+            </div>
+
+            <div>
+
+                <h4>
+                    Keep hair neat and practical
+                </h4>
+
+                <p>
+
+                    Choose a hairstyle that stays
+                    controlled during your workday.
+                    Avoid repeatedly touching or
+                    adjusting your hair during meetings.
+
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="step-number">
+                03
+            </div>
+
+            <div>
+
+                <h4>
+                    Keep the face fresh
+                </h4>
+
+                <p>
+
+                    Use a simple skincare routine that
+                    your skin tolerates. Daytime sun
+                    protection is especially useful if
+                    your commute or work involves being
+                    outdoors.
+
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="step-number">
+                04
+            </div>
+
+            <div>
+
+                <h4>
+                    Keep fragrance subtle
+                </h4>
+
+                <p>
+
+                    If you use fragrance, a light
+                    application is generally more
+                    workplace-friendly than a strong
+                    scent.
+
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="step-number">
+                05
+            </div>
+
+            <div>
+
+                <h4>
+                    Hands and nails
+                </h4>
+
+                <p>
+
+                    Clean hands and neatly maintained
+                    nails make a practical difference
+                    in professional settings, especially
+                    when working with people or
+                    equipment.
+
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="step-number">
+                06
+            </div>
+
+            <div>
+
+                <h4>
+                    Confidence is part of grooming
+                </h4>
+
+                <p>
+
+                    Sit and stand comfortably, maintain
+                    appropriate eye contact, speak
+                    clearly and avoid constantly
+                    checking your appearance.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="routine">
+
+        <div class="routine-box">
+
+            <h4>
+                💼 Interview Checklist
+            </h4>
+
+            <ul>
+
+                <li>Clean, pressed outfit</li>
+                <li>Neat hairstyle</li>
+                <li>Clean shoes</li>
+                <li>Fresh breath</li>
+                <li>Minimal accessories</li>
+                <li>Organized documents</li>
+
+            </ul>
+
+        </div>
+
+
+        <div class="routine-box">
+
+            <h4>
+                🖥 Workday Refresh
+            </h4>
+
+            <ul>
+
+                <li>Drink water</li>
+                <li>Refresh hands</li>
+                <li>Reapply sunscreen when needed</li>
+                <li>Fix hair gently</li>
+                <li>Check posture</li>
+                <li>Refresh lip balm</li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     TRAVEL GUIDE
+===================================================== -->
+
+<div
+    class="guide"
+    id="travelGuide"
+>
+
+    <div class="guide-top">
+
+        <div>
+
+            <p class="eyebrow">
+                03 / TRIP READY
+            </p>
+
+            <h3>
+                Your travel grooming ritual
+            </h3>
+
+        </div>
+
+        <button
+            class="close-guide"
+            data-close
+        >
+            ×
+        </button>
+
+    </div>
+
+
+    <p class="guide-intro">
+
+        Travel can mean sun, sweat, dry air,
+        unfamiliar water, long journeys and
+        changes in your normal routine. Keep your
+        kit small and focus on the essentials.
+
+    </p>
+
+
+    <div class="steps">
+
+
+        <div class="step">
+
+            <div class="step-number">
+                01
+            </div>
+
+            <div>
+
+                <h4>
+                    Build a small grooming pouch
+                </h4>
+
+                <p>
+
+                    Carry travel-sized versions of
+                    the products you already know
+                    work for you. Avoid experimenting
+                    with several new products just
+                    before a trip.
+
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="step-number">
+                02
+            </div>
+
+            <div>
+
+                <h4>
+                    Sunscreen is a travel essential
+                </h4>
+
+                <p>
+
+                    Outdoor trips increase sun exposure.
+                    Use broad-spectrum SPF 30+ sunscreen
+                    and reapply approximately every
+                    two hours when outdoors, and after
+                    swimming or sweating.
+
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="step-number">
+                03
+            </div>
+
+            <div>
+
+                <h4>
+                    Protect your hair
+                </h4>
+
+                <p>
+
+                    Sun and swimming can stress hair.
+                    A hat can provide physical
+                    protection, and gentle washing
+                    plus conditioner can help keep
+                    hair manageable.
+
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="step-number">
+                04
+            </div>
+
+            <div>
+
+                <h4>
+                    Hygiene during the journey
+                </h4>
+
+                <p>
+
+                    Wash your hands with soap and
+                    clean water when possible,
+                    especially before eating and
+                    after using the toilet. Hand
+                    sanitizer can be useful when
+                    soap and water are unavailable.
+
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="step-number">
+                05
+            </div>
+
+            <div>
+
+                <h4>
+                    Don't forget your basics
+                </h4>
+
+                <p>
+
+                    Pack toothbrush and toothpaste,
+                    deodorant, comb, hair ties,
+                    tissues, moisturizer, sunscreen,
+                    lip balm and any personal
+                    hygiene products you regularly use.
+
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="step-number">
+                06
+            </div>
+
+            <div>
+
+                <h4>
+                    After the trip
+                </h4>
+
+                <p>
+
+                    Return to your normal routine.
+                    Clean reusable grooming tools,
+                    wash clothes appropriately and
+                    give your skin and hair a break
+                    from unnecessary styling.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="routine">
+
+        <div class="routine-box">
+
+            <h4>
+                ✈️ Travel Beauty Kit
+            </h4>
+
+            <ul>
+
+                <li>Sunscreen SPF 30+</li>
+                <li>Moisturizer</li>
+                <li>Lip balm</li>
+                <li>Comb / brush</li>
+                <li>Hair ties</li>
+                <li>Deodorant</li>
+
+            </ul>
+
+        </div>
+
+
+        <div class="routine-box">
+
+            <h4>
+                🌤 Outdoor Trip
+            </h4>
+
+            <ul>
+
+                <li>Sunglasses</li>
+                <li>Hat / scarf</li>
+                <li>Water bottle</li>
+                <li>Light clothing</li>
+                <li>Sunscreen reapplication</li>
+                <li>Post-trip hair wash</li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     DAILY CHECKLIST
+===================================================== -->
+
+<section class="section">
+
+    <div class="check-section">
+
+        <p class="eyebrow">
+            YOUR DAILY RESET
+        </p>
+
+        <h2>
+            Small things,
+            <em>big difference.</em>
+        </h2>
+
+        <p>
+
+            Tick the habits you've completed today.
+            The checklist resets automatically when
+            you refresh the page.
+
+        </p>
+
+
+        <div class="checklist">
+
+
+            <label class="check-item">
+
+                <input type="checkbox">
+
+                <span>
+                    Morning face cleanse
+                </span>
+
+            </label>
+
+
+            <label class="check-item">
+
+                <input type="checkbox">
+
+                <span>
+                    Moisturizer / suitable skincare
+                </span>
+
+            </label>
+
+
+            <label class="check-item">
+
+                <input type="checkbox">
+
+                <span>
+                    SPF before going outdoors
+                </span>
+
+            </label>
+
+
+            <label class="check-item">
+
+                <input type="checkbox">
+
+                <span>
+                    Brush teeth
+                </span>
+
+            </label>
+
+
+            <label class="check-item">
+
+                <input type="checkbox">
+
+                <span>
+                    Fresh clothes
+                </span>
+
+            </label>
+
+
+            <label class="check-item">
+
+                <input type="checkbox">
+
+                <span>
+                    Hair neatly managed
+                </span>
+
+            </label>
+
+
+            <label class="check-item">
+
+                <input type="checkbox">
+
+                <span>
+                    Clean / trimmed nails
+                </span>
+
+            </label>
+
+
+            <label class="check-item">
+
+                <input type="checkbox">
+
+                <span>
+                    Carry water
+                </span>
+
+            </label>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     QUICK TIPS
+===================================================== -->
+
+<section class="section">
+
+    <div class="section-heading">
+
+        <p class="eyebrow">
+            LITTLE DETAILS
+        </p>
+
+        <h2>
+            The details people
+            <em>notice.</em>
+        </h2>
+
+    </div>
+
+
+    <div class="tips-grid">
+
+
+        <div class="tip">
+
+            <div class="tip-icon">
+                🪥
+            </div>
+
+            <h4>
+                Fresh breath
+            </h4>
+
+            <p>
+
+                Brush regularly and keep
+                your oral-care routine
+                consistent.
+
+            </p>
+
+        </div>
+
+
+        <div class="tip">
+
+            <div class="tip-icon">
+                💅
+            </div>
+
+            <h4>
+                Neat nails
+            </h4>
+
+            <p>
+
+                Clean, comfortably trimmed
+                nails are an easy part of
+                everyday grooming.
+
+            </p>
+
+        </div>
+
+
+        <div class="tip">
+
+            <div class="tip-icon">
+                💇🏻‍♀️
+            </div>
+
+            <h4>
+                Healthy hair
+            </h4>
+
+            <p>
+
+                Match your routine to your
+                hair type and be gentle when
+                detangling.
+
+            </p>
+
+        </div>
+
+
+        <div class="tip">
+
+            <div class="tip-icon">
+                ☀️
+            </div>
+
+            <h4>
+                Sun protection
+            </h4>
+
+            <p>
+
+                Use broad-spectrum SPF 30+
+                and combine sunscreen with
+                shade and protective clothing.
+
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    <h2>
+        SANCHÉA
+    </h2>
+
+    <p>
+        EVERYDAY GROOMING / PERSONAL CARE / CONFIDENCE
+    </p>
+
+</footer>
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script>
+
+
+/* =====================================================
+   GUIDE OPEN / CLOSE
+===================================================== */
+
+const cards =
+    document.querySelectorAll(".groom-card");
+
+const guides =
+    document.querySelectorAll(".guide");
+
+
+cards.forEach(card => {
+
+    card.addEventListener("click", () => {
+
+        const selected =
+            card.dataset.guide;
+
+        guides.forEach(guide => {
+
+            guide.classList.remove("active");
+
+        });
+
+        const target =
+            document.getElementById(
+                selected + "Guide"
+            );
+
+        if (target) {
+
+            target.classList.add("active");
+
+            setTimeout(() => {
+
+                target.scrollIntoView({
+
+                    behavior: "smooth",
+
+                    block: "start"
+
+                });
+
+            }, 100);
+
+        }
+
+    });
+
+});
+
+
+/* =====================================================
+   CLOSE BUTTON
+===================================================== */
+
+document.querySelectorAll("[data-close]")
+.forEach(button => {
+
+    button.addEventListener(
+        "click",
+        () => {
+
+            const guide =
+                button.closest(".guide");
+
+            guide.classList.remove("active");
+
+            document
+                .getElementById("guides")
+                .scrollIntoView({
+                    behavior: "smooth"
+                });
+
+        }
+    );
+
+});
+
+
+/* =====================================================
+   CHECKLIST ANIMATION
+===================================================== */
+
+const checks =
+    document.querySelectorAll(
+        '.check-item input'
+    );
+
+
+checks.forEach(check => {
+
+    check.addEventListener(
+        "change",
+        () => {
+
+            const item =
+                check.closest(".check-item");
+
+            if (check.checked) {
+
+                item.style.opacity = "0.55";
+
+                item.style.textDecoration =
+                    "line-through";
+
+            } else {
+
+                item.style.opacity = "1";
+
+                item.style.textDecoration =
+                    "none";
+
+            }
+
+        }
+    );
+
+});
+
+
+/* =====================================================
+   MOUSE GLOW
+===================================================== */
+
+document.addEventListener(
+    "mousemove",
+    event => {
+
+        const x =
+            event.clientX;
+
+        const y =
+            event.clientY;
+
+        document.body.style.background = `
+
+            radial-gradient(
+                circle at ${x}px ${y}px,
+                rgba(184,88,103,0.09),
+                transparent 23%
+            ),
+
+            radial-gradient(
+                circle at 10% 15%,
+                rgba(171,91,102,0.12),
+                transparent 28%
+            ),
+
+            #120d10
+
+        `;
+
+    }
+);
+
+</script>
+
+
+</body>
+
+</html>

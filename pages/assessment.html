@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SANCHÉA | Beauty Assessment</title>
+
+    <link rel="stylesheet" href="../style.css">
+<style>
+
+    :root {
+        --cream: #f8f3ed;
+        --cream-dark: #e8ddd2;
+        --brown: #3b2a26;
+        --brown-light: #806b63;
+        --rose: #b98276;
+        --white: #ffffff;
+        --border: #e8ddd6;
+        --serif: "Playfair Display", Georgia, serif;
+        --sans: "DM Sans", Arial, sans-serif;
+    }
+
+
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+
+    body {
+        font-family: var(--sans);
+        background: var(--cream);
+        color: var(--brown);
+    }
+
+
+    button,
+    a {
+        font-family: inherit;
+        cursor: pointer;
+    }
+
+
+    /* ================================
+       MAIN PAGE
+    ================================= */
+
+    .assessment-page {
+        min-height: 100vh;
+
+        padding: 80px 6%;
+
+        background:
+            radial-gradient(
+                circle at 10% 10%,
+                rgba(215, 180, 170, 0.28),
+                transparent 30%
+            ),
+            radial-gradient(
+                circle at 90% 90%,
+                rgba(220, 195, 170, 0.25),
+                transparent 30%
+            );
+    }
+
+
+    .assessment-container {
+        width: min(900px, 100%);
+        margin: auto;
+    }
+
+
+    /* ================================
+       HEADER
+    ================================= */
+
+    .assessment-header {
+        text-align: center;
+        margin-bottom: 50px;
+    }
+
+
+    .assessment-brand {
+        font-family: var(--serif);
+        font-size: 25px;
+        letter-spacing: 6px;
+        margin-bottom: 45px;
+    }
+
+
+    .assessment-header > p {
+        font-size: 10px;
+        letter-spacing: 3px;
+        color: var(--rose);
+        margin-bottom: 15px;
+    }
+
+
+    .assessment-header h1 {
+        font-family: var(--serif);
+        font-weight: 400;
+        font-size: clamp(42px, 7vw, 72px);
+        line-height: 1.05;
+    }
+
+
+    .assessment-header h1 em {
+        color: var(--rose);
+        font-style: italic;
+    }
+
+
+    .intro {
+        max-width: 520px;
+        margin: 22px auto 0;
+
+        font-size: 14px;
+        line-height: 1.8;
+
+        color: var(--brown-light);
+    }
+
+
+    /* ================================
+       PROGRESS
+    ================================= */
+
+    .progress-wrapper {
+        margin-bottom: 25px;
+    }
+
+
+    .progress-info {
+        display: flex;
+        justify-content: space-between;
+
+        margin-bottom: 9px;
+
+        font-size: 9px;
+        letter-spacing: 1.5px;
+
+        color: var(--brown-light);
+    }
+
+
+    .progress-bar {
+        height: 3px;
+        background: var(--cream-dark);
+        overflow: hidden;
+    }
+
+
+    .progress-fill {
+        height: 100%;
+        width: 20%;
+
+        background: var(--rose);
+
+        transition: width 0.5s ease;
+    }
+
+
+    /* ================================
+       QUESTION CARD
+    ================================= */
+
+    .question-card {
+        background: rgba(255, 255, 255, 0.92);
+
+        border: 1px solid var(--border);
+
+        padding: clamp(30px, 6vw, 60px);
+
+        box-shadow:
+            0 30px 80px rgba(59, 42, 38, 0.08);
+
+        backdrop-filter: blur(10px);
+
+        animation: cardIn 0.5s ease;
+    }
+
+
+    @keyframes cardIn {
+
+        from {
+            opacity: 0;
+            transform: translateY(15px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+    }
+
+
+    .question-number {
+        color: var(--rose);
+
+        font-size: 10px;
+
+        letter-spacing: 3px;
+
+        margin-bottom: 18px;
+    }
+
+
+    .question-card h2 {
+        font-family: var(--serif);
+
+        font-size: clamp(30px, 5vw, 48px);
+
+        font-weight: 400;
+
+        line-height: 1.15;
+    }
+
+
+    .question-subtitle {
+        margin-top: 12px;
+
+        color: var(--brown-light);
+
+        font-size: 13px;
+    }
+
+
+    /* ================================
+       OPTIONS
+    ================================= */
+
+    .options {
+        display: grid;
+
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 12px;
+
+        margin-top: 35px;
+    }
+
+
+    .option {
+        text-align: left;
+
+        border: 1px solid var(--border);
+
+        background: #faf7f3;
+
+        padding: 20px;
+
+        color: var(--brown);
+
+        transition:
+            transform 0.3s ease,
+            border-color 0.3s ease,
+            background 0.3s ease,
+            box-shadow 0.3s ease;
+    }
+
+
+    .option:hover {
+        transform: translateY(-4px);
+
+        border-color: var(--rose);
+
+        box-shadow:
+            0 12px 30px rgba(59, 42, 38, 0.08);
+    }
+
+
+    .option.selected {
+        background: #f3e3df;
+
+        border-color: var(--rose);
+
+        box-shadow:
+            0 10px 25px rgba(185, 130, 118, 0.15);
+    }
+
+
+    .option strong {
+        display: block;
+
+        font-size: 13px;
+
+        font-weight: 600;
+    }
+
+
+    .option span {
+        display: block;
+
+        margin-top: 6px;
+
+        font-size: 10px;
+
+        line-height: 1.5;
+
+        color: var(--brown-light);
+    }
+
+
+    /* ================================
+       BUTTONS
+    ================================= */
+
+    .assessment-actions {
+        display: flex;
+
+        justify-content: space-between;
+
+        align-items: center;
+
+        margin-top: 35px;
+    }
+
+
+    .back-button {
+        border: none;
+
+        background: transparent;
+
+        color: var(--brown-light);
+
+        padding: 12px;
+
+        font-size: 11px;
+    }
+
+
+    .back-button:hover {
+        color: var(--brown);
+    }
+
+
+    .next-button {
+        border: none;
+
+        padding: 15px 24px;
+
+        background: var(--brown);
+
+        color: var(--cream);
+
+        font-size: 11px;
+
+        letter-spacing: 0.5px;
+
+        display: flex;
+
+        align-items: center;
+
+        gap: 18px;
+
+        transition:
+            transform 0.3s ease,
+            background 0.3s ease;
+    }
+
+
+    .next-button:hover {
+        transform: translateY(-3px);
+
+        background: #513b35;
+    }
+
+
+    /* ================================
+       RESULT
+    ================================= */
+
+    .result-card {
+        display: none;
+
+        text-align: center;
+
+        background: rgba(255,255,255,0.94);
+
+        border: 1px solid var(--border);
+
+        padding: 65px 35px;
+
+        box-shadow:
+            0 30px 80px rgba(59,42,38,0.08);
+    }
+
+
+    .result-card.active {
+        display: block;
+
+        animation: cardIn 0.7s ease;
+    }
+
+
+    .result-icon {
+        width: 65px;
+        height: 65px;
+
+        margin: auto;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        border-radius: 50%;
+
+        background: #f3e3df;
+
+        color: var(--rose);
+
+        font-size: 26px;
+    }
+
+
+    .result-card > p:first-of-type {
+        margin-top: 25px;
+
+        font-size: 9px;
+
+        letter-spacing: 3px;
+
+        color: var(--rose);
+    }
+
+
+    .result-card h2 {
+        margin-top: 18px;
+
+        font-family: var(--serif);
+
+        font-size: clamp(38px, 6vw, 58px);
+
+        font-weight: 400;
+    }
+
+
+    #resultDescription {
+        max-width: 580px;
+
+        margin: 18px auto 0;
+
+        font-size: 13px;
+
+        line-height: 1.9;
+
+        color: var(--brown-light);
+    }
+
+
+    .result-tags {
+        display: flex;
+
+        justify-content: center;
+
+        flex-wrap: wrap;
+
+        gap: 9px;
+
+        margin-top: 25px;
+    }
+
+
+    .result-tag {
+        padding: 9px 14px;
+
+        background: #f7f0ea;
+
+        font-size: 9px;
+
+        letter-spacing: 0.5px;
+    }
+
+
+    .return-home {
+        display: inline-flex;
+
+        margin-top: 35px;
+
+        padding: 15px 23px;
+
+        background: var(--brown);
+
+        color: var(--cream);
+
+        text-decoration: none;
+
+        font-size: 10px;
+
+        transition: transform 0.3s ease;
+    }
+
+
+    .return-home:hover {
+        transform: translateY(-3px);
+    }
+
+
+    /* ================================
+       MOBILE
+    ================================= */
+
+    @media (max-width: 650px) {
+
+        .assessment-page {
+            padding: 50px 5%;
+        }
+
+
+        .assessment-brand {
+            margin-bottom: 30px;
+        }
+
+
+        .options {
+            grid-template-columns: 1fr;
+        }
+
+
+        .question-card {
+            padding: 28px 20px;
+        }
+
+
+        .assessment-actions {
+            margin-top: 25px;
+        }
+
+
+        .result-card {
+            padding: 50px 22px;
+        }
+
+    }
+
+</style>
+</head>
+
+<body>
+
+    <main class="assessment-page">
+
+        <div class="assessment-container">
+
+            <div class="assessment-header">
+
+                <div class="assessment-brand">
+                    SANCHÉA
+                </div>
+
+                <p>YOUR PERSONAL BEAUTY PROFILE</p>
+
+                <h1>
+                    Let's understand
+                    <em>you.</em>
+                </h1>
+
+                <div class="intro">
+                    Answer a few simple questions and
+                    we'll create a personalized starting
+                    point for your beauty journey.
+                </div>
+
+            </div>
+
+
+            <div class="progress-wrapper">
+
+                <div class="progress-info">
+
+                    <span id="questionCounter">
+                        QUESTION 1 OF 5
+                    </span>
+
+                    <span id="progressPercent">
+                        20%
+                    </span>
+
+                </div>
+
+                <div class="progress-bar">
+
+                    <div
+                        class="progress-fill"
+                        id="progressFill">
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div
+                class="question-card"
+                id="questionCard">
+
+                <div
+                    class="question-number"
+                    id="questionNumber">
+                    01
+                </div>
+
+                <h2 id="questionTitle">
+                    How would you describe your skin?
+                </h2>
+
+                <p
+                    class="question-subtitle"
+                    id="questionSubtitle">
+                    Choose the option that feels closest
+                    to you.
+                </p>
+
+                <div
+                    class="options"
+                    id="options">
+                </div>
+
+                <div class="assessment-actions">
+
+                    <button
+                        class="back-button"
+                        id="backButton"
+                        disabled>
+                        ← Back
+                    </button>
+
+                    <button
+                        class="next-button"
+                        id="nextButton">
+                        Continue
+                        <span>→</span>
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div
+                class="result-card"
+                id="resultCard">
+
+                <div class="result-icon">
+                    ✦
+                </div>
+
+                <p>
+                    YOUR SANCHÉA BEAUTY PROFILE
+                </p>
+
+                <h2 id="resultTitle">
+                    Your Beauty Profile
+                </h2>
+
+                <p id="resultDescription">
+                    Your personalized beauty journey
+                    starts here.
+                </p>
+
+                <div
+                    class="result-tags"
+                    id="resultTags">
+                </div>
+
+                <a
+                    href="../index.html"
+                    class="return-home">
+                    Return to SANCHÉA
+                </a>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <script>
+
+        const questions = [
+
+            {
+                title:
+                    "How would you describe your skin?",
+
+                subtitle:
+                    "Choose the option that feels closest to you.",
+
+                options: [
+                    ["Balanced", "Usually comfortable and even"],
+                    ["Dry", "Often feels tight or dry"],
+                    ["Oily", "Tends to look shiny"],
+                    ["Combination", "Different areas behave differently"]
+                ]
+            },
+
+
+            {
+                title:
+                    "What is your main beauty concern?",
+
+                subtitle:
+                    "Choose the one you'd like to focus on first.",
+
+                options: [
+                    ["Hydration", "I want a healthier, hydrated feel"],
+                    ["Acne", "I want to manage breakouts"],
+                    ["Dullness", "I want a brighter appearance"],
+                    ["Texture", "I want smoother-looking skin"]
+                ]
+            },
+
+
+            {
+                title:
+                    "How would you describe your hair?",
+
+                subtitle:
+                    "Think about your natural hair texture.",
+
+                options: [
+                    ["Straight", "Naturally straight"],
+                    ["Wavy", "Soft waves or loose texture"],
+                    ["Curly", "Defined curls"],
+                    ["Coily", "Tightly textured curls"]
+                ]
+            },
+
+
+            {
+                title:
+                    "What does your ideal beauty routine feel like?",
+
+                subtitle:
+                    "Choose the style that fits your lifestyle.",
+
+                options: [
+                    ["Minimal", "Simple and quick"],
+                    ["Balanced", "A few intentional steps"],
+                    ["Detailed", "I enjoy a complete routine"],
+                    ["Self-care", "Relaxing and ritual-focused"]
+                ]
+            },
+
+
+            {
+                title:
+                    "What is your main beauty goal?",
+
+                subtitle:
+                    "What would you love to improve or understand?",
+
+                options: [
+                    ["Healthy Glow", "I want naturally radiant-looking skin"],
+                    ["Confidence", "I want to feel better in my appearance"],
+                    ["Consistency", "I want a routine I can maintain"],
+                    ["Discovery", "I want to understand what suits me"]
+                ]
+            }
+
+        ];
+
+
+        let currentQuestion = 0;
+
+        let answers = [];
+
+
+        const questionTitle =
+            document.getElementById("questionTitle");
+
+        const questionSubtitle =
+            document.getElementById("questionSubtitle");
+
+        const questionNumber =
+            document.getElementById("questionNumber");
+
+        const optionsContainer =
+            document.getElementById("options");
+
+        const questionCounter =
+            document.getElementById("questionCounter");
+
+        const progressPercent =
+            document.getElementById("progressPercent");
+
+        const progressFill =
+            document.getElementById("progressFill");
+
+        const nextButton =
+            document.getElementById("nextButton");
+
+        const backButton =
+            document.getElementById("backButton");
+
+        const questionCard =
+            document.getElementById("questionCard");
+
+        const resultCard =
+            document.getElementById("resultCard");
+
+
+        function loadQuestion() {
+
+            const question =
+                questions[currentQuestion];
+
+
+            questionTitle.textContent =
+                question.title;
+
+
+            questionSubtitle.textContent =
+                question.subtitle;
+
+
+            questionNumber.textContent =
+                String(currentQuestion + 1).padStart(2, "0");
+
+
+            questionCounter.textContent =
+                `QUESTION ${currentQuestion + 1} OF ${questions.length}`;
+
+
+            const progress =
+                ((currentQuestion + 1) / questions.length) * 100;
+
+
+            progressPercent.textContent =
+                `${progress}%`;
+
+
+            progressFill.style.width =
+                `${progress}%`;
+
+
+            optionsContainer.innerHTML = "";
+
+
+            question.options.forEach(
+                (option, index) => {
+
+                    const button =
+                        document.createElement("button");
+
+
+                    button.className = "option";
+
+
+                    button.innerHTML = `
+                        <strong>${option[0]}</strong>
+                        <span>${option[1]}</span>
+                    `;
+
+
+                    if (
+                        answers[currentQuestion] === index
+                    ) {
+                        button.classList.add("selected");
+                    }
+
+
+                    button.addEventListener(
+                        "click",
+                        () => {
+
+                            answers[currentQuestion] =
+                                index;
+
+                            document
+                                .querySelectorAll(".option")
+                                .forEach(
+                                    item =>
+                                        item.classList.remove(
+                                            "selected"
+                                        )
+                                );
+
+                            button.classList.add(
+                                "selected"
+                            );
+
+                        }
+                    );
+
+
+                    optionsContainer.appendChild(
+                        button
+                    );
+
+                }
+            );
+
+
+            backButton.disabled =
+                currentQuestion === 0;
+
+
+            nextButton.innerHTML =
+                currentQuestion === questions.length - 1
+                    ? `Create My Profile <span>✦</span>`
+                    : `Continue <span>→</span>`;
+
+        }
+
+
+        nextButton.addEventListener(
+            "click",
+            () => {
+
+                if (
+                    answers[currentQuestion] === undefined
+                ) {
+
+                    alert(
+                        "Please choose an option first."
+                    );
+
+                    return;
+
+                }
+
+
+                if (
+                    currentQuestion <
+                    questions.length - 1
+                ) {
+
+                    currentQuestion++;
+
+                    loadQuestion();
+
+                } else {
+
+                    showResult();
+
+                }
+
+            }
+        );
+
+
+        backButton.addEventListener(
+            "click",
+            () => {
+
+                if (currentQuestion > 0) {
+
+                    currentQuestion--;
+
+                    loadQuestion();
+
+                }
+
+            }
+        );
+
+
+        function showResult() {
+
+            questionCard.style.display =
+                "none";
+
+
+            document.querySelector(
+                ".progress-wrapper"
+            ).style.display = "none";
+
+
+            const skin =
+                questions[0].options[answers[0]][0];
+
+            const concern =
+                questions[1].options[answers[1]][0];
+
+            const hair =
+                questions[2].options[answers[2]][0];
+
+            const routine =
+                questions[3].options[answers[3]][0];
+
+            const goal =
+                questions[4].options[answers[4]][0];
+
+
+            document.getElementById(
+                "resultTitle"
+            ).textContent =
+                `${goal} Beauty Journey`;
+
+
+            document.getElementById(
+                "resultDescription"
+            ).textContent =
+                `Your profile suggests a ${routine.toLowerCase()}
+                approach, with a focus on ${concern.toLowerCase()}.
+                Your skin profile is ${skin.toLowerCase()}
+                and your hair profile is ${hair.toLowerCase()}.
+                SANCHÉA can use these preferences to personalize
+                your beauty journey.`;
+
+
+            const tags = [
+                skin,
+                concern,
+                hair,
+                routine,
+                goal
+            ];
+
+
+            const tagContainer =
+                document.getElementById("resultTags");
+
+
+            tagContainer.innerHTML = "";
+
+
+            tags.forEach(tag => {
+
+                const element =
+                    document.createElement("span");
+
+                element.className =
+                    "result-tag";
+
+                element.textContent =
+                    tag;
+
+                tagContainer.appendChild(
+                    element
+                );
+
+            });
+
+
+            resultCard.classList.add(
+                "active"
+            );
+
+        }
+
+
+        loadQuestion();
+
+    </script>
+
+</body>
+
+</html>
